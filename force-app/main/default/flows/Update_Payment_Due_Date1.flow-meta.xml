@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>56.0</apiVersion>
+    <decisions>
+        <name>Check_Last_Received_date</name>
+        <label>Check Last Received date</label>
+        <locationX>446</locationX>
+        <locationY>335</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>LastReceived_isNULL</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Date1</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Payment_Due_Date</targetReference>
+            </connector>
+            <label>LastReceived isNULL</label>
+        </rules>
+        <rules>
+            <name>LastReceived_isChanged</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>date2</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Payment_Due_Date2</targetReference>
+            </connector>
+            <label>LastReceived isChanged</label>
+        </rules>
+        <rules>
+            <name>Override_TRUE</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.SYSTEM_WorkflowBypass__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Member_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Former Member</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Reset_Override</targetReference>
+            </connector>
+            <label>Override = TRUE</label>
+        </rules>
+    </decisions>
+    <description>Updates the payment due date on membership. Added action to update account payment due date to get round timing issue on process builder updates.</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>Date1</name>
+        <dataType>Boolean</dataType>
+        <expression>AND(
+OR(
+AND(
+ISNULL({!$Record__Prior.Last_Payment_Received_Date__c})),
+NOT(ISNULL({!$Record.Last_Payment_Received_Date__c} ))
+),
+AND(ISCHANGED({!$Record.Date_of_Earliest_Payment_Due_SYSTEM__c}),
+NOT(ISNULL({!$Record.Date_of_Earliest_Payment_Due_SYSTEM__c} ))
+),
+{!$Record.SYSTEM_WorkflowBypass__c}=FALSE,
+NOT(ISPICKVAL({!$Record.Member_Status__c} ,&quot;Former Member&quot;) )
+)</expression>
+    </formulas>
+    <formulas>
+        <name>date2</name>
+        <dataType>Boolean</dataType>
+        <expression>AND(
+NOT(ISNULL({!$Record__Prior.Last_Payment_Received_Date__c})),
+OR(
+ISCHANGED({!$Record.Last_Payment_Received_Date__c} ),
+AND(ISCHANGED({!$Record.Last_Payment_Received_Date__c}),
+NOT(ISNULL({!$Record.Last_Payment_Received_Date__c}))),
+AND(ISCHANGED({!$Record.Date_of_Earliest_Payment_Due_SYSTEM__c}),
+NOT(ISNULL({!$Record.Date_of_Earliest_Payment_Due_SYSTEM__c})))
+),
+{!$Record.SYSTEM_WorkflowBypass__c} =FALSE,
+NOT(ISPICKVAL({!$Record.Member_Status__c} ,&quot;Former Member&quot;) )
+)</expression>
+    </formulas>
+    <formulas>
+        <name>DueDate</name>
+        <dataType>Date</dataType>
+        <expression>IF(
+NOT(ISNULL({!$Record.Date_of_Earliest_Payment_Due_SYSTEM__c})),
+{!$Record.Date_of_Earliest_Payment_Due_SYSTEM__c},
+{!$Record.Renewal_Date__c}
+)</expression>
+    </formulas>
+    <formulas>
+        <name>Formula</name>
+        <dataType>Date</dataType>
+        <expression>IF(
+NOT(ISNULL({!$Record.Date_of_Earliest_Payment_Due_SYSTEM__c} )),
+{!$Record.Date_of_Earliest_Payment_Due_SYSTEM__c},
+
+IF(
+ISNULL({!$Record.Payment_Due_Date__c} ),
+	IF(
+	AND( MONTH({!$Record.Membership_Start_Date__c})=MONTH(TODAY()), DAY({!$Record.Membership_Start_Date__c})=DAY(TODAY()) ), 
+		DATE(YEAR(TODAY())+1,MONTH({!$Record.Membership_Start_Date__c}),DAY({!$Record.Membership_Start_Date__c})), 
+	IF(
+	DATE(YEAR(TODAY()),MONTH({!$Record.Membership_Start_Date__c}),DAY({!$Record.Membership_Start_Date__c}))&gt; TODAY(), 
+		DATE(YEAR(TODAY()),1,DAY({!$Record.Membership_Start_Date__c})), 
+	IF(
+	DATE(YEAR(TODAY()),MONTH({!$Record.Membership_Start_Date__c}),DAY({!$Record.Membership_Start_Date__c}))&lt;TODAY(), 
+		DATE(YEAR(TODAY())+1,MONTH({!$Record.Membership_Start_Date__c}),DAY({!$Record.Membership_Start_Date__c})), NULL))),
+
+IF(
+AND(
+{!$Record.Last_Payment_Received_Date__c} &lt; {!$Record.Payment_Due_Date__c} , 
+{!$Record.Last_Payment_Received_Date__c}&lt;&gt;DATE(YEAR({!$Record.Renewal_Date__c})-1,MONTH({!$Record.Renewal_Date__c}),DAY({!$Record.Renewal_Date__c})),
+{!$Record.Last_Payment_Received_Date__c} &lt;&gt;DATE(YEAR({!$Record.Renewal_Date__c})-2,MONTH({!$Record.Renewal_Date__c}),DAY({!$Record.Renewal_Date__c}))
+),
+	DATE(YEAR({!$Record.Renewal_Date__c})+1,MONTH({!$Record.Renewal_Date__c}),DAY({!$Record.Renewal_Date__c})), 	
+IF(
+AND(
+OR({!$Record.Last_Payment_Received_Date__c} &gt; {!$Record.Payment_Due_Date__c} , 
+{!$Record.Last_Payment_Received_Date__c} ={!$Record.Payment_Due_Date__c} ),
+{!$Record.Last_Payment_Received_Date__c}&lt;&gt;DATE(YEAR({!$Record.Renewal_Date__c})-1,MONTH({!$Record.Renewal_Date__c}),DAY({!$Record.Renewal_Date__c})),
+{!$Record.Last_Payment_Received_Date__c}&lt;&gt;DATE(YEAR({!$Record.Renewal_Date__c})-2,MONTH({!$Record.Renewal_Date__c}),DAY({!$Record.Renewal_Date__c}))
+),
+	DATE(YEAR({!$Record.Renewal_Date__c}),MONTH({!$Record.Renewal_Date__c}),DAY({!$Record.Renewal_Date__c})),
+
+NULL )))
+)</expression>
+    </formulas>
+    <interviewLabel>Update Payment Due Date {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Update Payment Due Date</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Reset_Override</name>
+        <label>Reset Override</label>
+        <locationX>578</locationX>
+        <locationY>455</locationY>
+        <inputAssignments>
+            <field>SYSTEM_WorkflowBypass__c</field>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Account_Payment_Due_date</name>
+        <label>Update Account Payment Due date</label>
+        <locationX>50</locationX>
+        <locationY>575</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Account__r.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Payment_Due_Days__c</field>
+            <value>
+                <elementReference>$Record.Payment_Due_Days__c</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Account</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Account_payment_due_date1</name>
+        <label>Update Account payment due date</label>
+        <locationX>314</locationX>
+        <locationY>575</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Account__r.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Payment_Due_Days__c</field>
+            <value>
+                <elementReference>$Record.Payment_Due_Days__c</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Account</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Payment_Due_Date</name>
+        <label>Update Payment Due Date</label>
+        <locationX>50</locationX>
+        <locationY>455</locationY>
+        <connector>
+            <targetReference>Update_Account_Payment_Due_date</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Payment_Due_Date__c</field>
+            <value>
+                <elementReference>DueDate</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Payment_Due_Date2</name>
+        <label>Update Payment Due Date</label>
+        <locationX>314</locationX>
+        <locationY>455</locationY>
+        <connector>
+            <targetReference>Update_Account_payment_due_date1</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Payment_Due_Date__c</field>
+            <value>
+                <elementReference>Formula</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>320</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Check_Last_Received_date</targetReference>
+        </connector>
+        <object>Membership__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

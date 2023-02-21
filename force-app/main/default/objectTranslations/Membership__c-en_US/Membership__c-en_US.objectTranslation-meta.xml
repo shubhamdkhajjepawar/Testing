@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Membership</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Membership</value>
+    </caseValues>
+    <layouts>
+        <layout>Membership Layout</layout>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>New Section</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>System &amp; Programs</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>TESTING Payment Information</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label></label>
+        <name>NewRecord</name>
+    </quickActions>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>AMBLANKMDNOT</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>MDBLANKAMNOT</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Require_Agreement_Signed_Date</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Require_Date_Agreement_Sent_Out</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Require_Start_Date_when_Member_is_Active</name>
+    </validationRules>
+    <webLinks>
+        <label></label>
+        <name>Override_Membership_Dates</name>
+    </webLinks>
+    <webLinks>
+        <label></label>
+        <name>Send_Agreement</name>
+    </webLinks>
+</CustomObjectTranslation>

@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Email_Notification_to_Finance</name>
+        <label>Email Notification to Finance</label>
+        <locationX>50</locationX>
+        <locationY>575</locationY>
+        <actionName>Opportunity.Written_Off_Notification_to_Finance</actionName>
+        <actionType>emailAlert</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <actionCalls>
+        <name>Notification_to_Finance</name>
+        <label>Notification to Finance</label>
+        <locationX>314</locationX>
+        <locationY>455</locationY>
+        <actionName>Opportunity.EA_Written_Off_Active_Notification_to_Finance</actionName>
+        <actionType>emailAlert</actionType>
+        <connector>
+            <targetReference>Update_Membership_Payment_Due_Date</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <apiVersion>56.0</apiVersion>
+    <decisions>
+        <name>Check_Stage_Name</name>
+        <label>Check Stage Name</label>
+        <locationX>314</locationX>
+        <locationY>335</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>StageName_Written_Off</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Written Off</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Membership</targetReference>
+            </connector>
+            <label>StageName = Written Off</label>
+        </rules>
+        <rules>
+            <name>StageName_Written_Off_Active</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Written Off - Active</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Notification_to_Finance</targetReference>
+            </connector>
+            <label>StageName = Written Off -  Active</label>
+        </rules>
+    </decisions>
+    <description>Updates the membership record to former member and clears renewal and payment dates when an opportunity is written off</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>date</name>
+        <dataType>Date</dataType>
+        <expression>IF(
+ISPICKVAL({!$Record.Membership__r.Schedule__c} ,&quot;Annually&quot;),
+
+date(
+year({!$Record.Membership__r.Payment_Due_Date__c})+1,
+month({!$Record.Membership__r.Payment_Due_Date__c} ),
+day({!$Record.Membership__r.Payment_Due_Date__c} )),
+
+date(
+year({!$Record.Membership__r.Payment_Due_Date__c} )+2,
+month({!$Record.Membership__r.Payment_Due_Date__c} ),
+day({!$Record.Membership__r.Payment_Due_Date__c}))
+)</expression>
+    </formulas>
+    <formulas>
+        <name>Null</name>
+        <dataType>Date</dataType>
+        <expression>NULL</expression>
+    </formulas>
+    <formulas>
+        <name>Today</name>
+        <dataType>Date</dataType>
+        <expression>TODAY()</expression>
+    </formulas>
+    <interviewLabel>Update Membership with Opportunity is Written Off {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Update Membership with Opportunity is Written Off</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Update_Membership</name>
+        <label>Update Membership</label>
+        <locationX>50</locationX>
+        <locationY>455</locationY>
+        <connector>
+            <targetReference>Email_Notification_to_Finance</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Membership__r.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Current_Payment_Amount_Due__c</field>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Member_Status__c</field>
+            <value>
+                <stringValue>Former Member</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Membership_End_Date__c</field>
+            <value>
+                <elementReference>Today</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Payment_Amount_Past_Due__c</field>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Payment_Due_Date__c</field>
+            <value>
+                <elementReference>Null</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Renewal_Date__c</field>
+            <value>
+                <elementReference>Null</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Membership__c</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Membership_Payment_Due_Date</name>
+        <label>Update Membership Payment Due Date</label>
+        <locationX>314</locationX>
+        <locationY>575</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Membership__r.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Payment_Due_Date__c</field>
+            <value>
+                <elementReference>date</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Membership__c</object>
+    </recordUpdates>
+    <start>
+        <locationX>188</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Check_Stage_Name</targetReference>
+        </connector>
+        <object>Opportunity</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

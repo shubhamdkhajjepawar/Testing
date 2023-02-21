@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Send_it</name>
+        <label>Send it</label>
+        <locationX>1055</locationX>
+        <locationY>541</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>emailBody</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>Contact.Email</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>Your organization information</stringValue>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <apiVersion>52.0</apiVersion>
+    <assignments>
+        <name>Add_columns_to_table_markup</name>
+        <label>Add columns to table markup</label>
+        <locationX>449</locationX>
+        <locationY>224</locationY>
+        <assignmentItems>
+            <assignToReference>table</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>tableColumns</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>While_items</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Add_table_row</name>
+        <label>Add table row</label>
+        <locationX>1060</locationX>
+        <locationY>225</locationY>
+        <assignmentItems>
+            <assignToReference>table</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>tableRow</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>While_items</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Close_Table_markup</name>
+        <label>Close Table markup</label>
+        <locationX>564</locationX>
+        <locationY>541</locationY>
+        <assignmentItems>
+            <assignToReference>table</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <stringValue>&lt;/table&gt;</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Display1</targetReference>
+        </connector>
+    </assignments>
+    <formulas>
+        <name>ContactUpdatelink</name>
+        <dataType>String</dataType>
+        <expression>&quot;https://gravityforms.com?contactID=&quot;&amp;{!Contact.Id} &amp;&quot; &amp;accountid=&quot; &amp; {!Contact.AccountId}</expression>
+    </formulas>
+    <formulas>
+        <name>EmailSubject</name>
+        <dataType>String</dataType>
+        <expression>&quot;Your Organization Updates&quot;</expression>
+    </formulas>
+    <formulas>
+        <name>tableRow</name>
+        <dataType>String</dataType>
+        <expression>&apos;&lt;tr&gt;&lt;td style=&quot;border: 1px solid black;&quot;&gt;&apos; + TEXT({!While_items.Role__c}) +
+&apos;&lt;/td&gt;&lt;td style=&quot;border: 1px solid black;&quot;&gt;&apos; + {!While_items.Contact_Name__c} + 
+&apos;&lt;/td&gt;&lt;td style=&quot;border: 1px solid black;&quot;&gt;&apos; + {!While_items.Contact__r.Title}+ 
+&apos;&lt;/td&gt;&lt;td style=&quot;border: 1px solid black;&quot;&gt;&apos; +  {!While_items.Contact__r.Email}+ 
+&apos;&lt;/td&gt;&lt;td style=&quot;border: 1px solid black;&quot;&gt;&apos; +  {!While_items.Contact__r.Phone}+ 
+&apos;&lt;/td&gt;&lt;/tr&gt;&apos;</expression>
+    </formulas>
+    <formulas>
+        <name>tableRowNoRole</name>
+        <dataType>String</dataType>
+        <expression>&apos;&lt;tr&gt;&lt;td style=&quot;border: 1px solid black;&quot;&gt;&apos; + &quot; - &quot; +
+&apos;&lt;/td&gt;&lt;td style=&quot;border: 1px solid black;&quot;&gt;&apos; + {!While_items.Contact_Name__c} + 
+&apos;&lt;/td&gt;&lt;td style=&quot;border: 1px solid black;&quot;&gt;&apos; + {!While_items.Contact__r.Title}+ 
+&apos;&lt;/td&gt;&lt;td style=&quot;border: 1px solid black;&quot;&gt;&apos; +  {!While_items.Contact__r.Email}+ 
+&apos;&lt;/td&gt;&lt;td style=&quot;border: 1px solid black;&quot;&gt;&apos; +  {!While_items.Contact__r.Phone}+ 
+&apos;&lt;/td&gt;&lt;/tr&gt;&apos;</expression>
+    </formulas>
+    <formulas>
+        <name>TwoWeeksFromToday</name>
+        <dataType>Date</dataType>
+        <expression>Today() + 14</expression>
+    </formulas>
+    <interviewLabel>Contact Updates {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Contact Updates</label>
+    <loops>
+        <name>While_items</name>
+        <label>While items</label>
+        <locationX>628</locationX>
+        <locationY>226</locationY>
+        <collectionReference>Current_roles</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Add_table_row</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Close_Table_markup</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Flow</processType>
+    <recordLookups>
+        <name>Contact</name>
+        <label>Contact</label>
+        <locationX>122</locationX>
+        <locationY>361</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Current_roles</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Contact</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Current_roles</name>
+        <label>Current roles</label>
+        <locationX>123</locationX>
+        <locationY>489</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Add_columns_to_table_markup</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Account__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Contact.AccountId</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Status__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Current</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>Current_Roles__c</object>
+        <sortField>Role__c</sortField>
+        <sortOrder>Asc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <screens>
+        <name>Display1</name>
+        <label>Display1</label>
+        <locationX>795</locationX>
+        <locationY>541</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Send_it</targetReference>
+        </connector>
+        <fields>
+            <name>table1</name>
+            <fieldText>&lt;p&gt;{!emailBody}&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>First</name>
+        <label>First</label>
+        <locationX>109</locationX>
+        <locationY>226</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Contact</targetReference>
+        </connector>
+        <fields>
+            <name>First_text</name>
+            <fieldText>&lt;p&gt;This process will generate and send an email to this contact displaying current details and a link to a form for the contact to update these.&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <start>
+        <locationX>50</locationX>
+        <locationY>50</locationY>
+        <connector>
+            <targetReference>First</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <textTemplates>
+        <name>emailBody</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;Dear {!Contact.Full_Name__c},&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 12px; color: black;&quot;&gt;I hope you are well. I’m reaching out because we are updating the Schwartz Rounds® committee leaders in our membership management system so that we can best serve you and your team. &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 12px; color: black;&quot;&gt;Below is the information we currently have on file. Please review it and &lt;/span&gt;&lt;span style=&quot;font-size: 12px; color: rgb(0, 0, 0);&quot;&gt;let us know about any additions or updates at this &lt;/span&gt;&lt;a href=&quot;{!ContactUpdatelink}&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; style=&quot;font-size: 12px; color: rgb(23, 31, 244);&quot;&gt;location&lt;/a&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;{!Contact.Account.Name}&lt;/b&gt;&lt;/p&gt;&lt;p&gt;Organization Code: {!Contact.Account.Organization_Code__c}&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;{!table}&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 12px; color: black;&quot;&gt;To best support your program, we ask that you provide any missing information or changes &lt;/span&gt;&lt;span style=&quot;font-size: 12px; color: rgb(0, 112, 192);&quot;&gt; &lt;/span&gt;&lt;span style=&quot;font-size: 12px; color: black;&quot;&gt;by {!TwoWeeksFromToday}. You can also use this &lt;/span&gt;&lt;a href=&quot;{!ContactUpdatelink}&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; style=&quot;font-size: 12px; color: rgb(23, 31, 244);&quot;&gt;form&lt;/a&gt;&lt;span style=&quot;font-size: 12px; color: black;&quot;&gt; throughout the year to let us know about any new committee leaders. &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 12px; color: black;&quot;&gt;Please let me know if you have questions or if I may be of any assistance.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 12px; color: black;&quot;&gt;Thank you for your commitment to compassionate, collaborative care!&lt;/span&gt;&lt;/p&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>headerStyleString</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;background-color: #4CAF50;&lt;/p&gt;&lt;p&gt;color:white;&lt;/p&gt;</text>
+    </textTemplates>
+    <variables>
+        <name>recordCount</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>2</scale>
+    </variables>
+    <variables>
+        <name>recordId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>table</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <stringValue>&lt;table style=&quot;width:100%;border: 1px solid black;&quot;&gt;</stringValue>
+        </value>
+    </variables>
+    <variables>
+        <name>tableColumns</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <stringValue>&lt;tr&gt; &lt;th style=&quot;border: 1px solid black;&quot;&gt;Role&lt;/th&gt; &lt;th style=&quot;border: 1px solid black;&quot;&gt;Name&lt;/th&gt;  &lt;th style=&quot;border: 1px solid black;&quot;&gt;Title&lt;/th&gt;  &lt;th style=&quot;border: 1px solid black;&quot;&gt;Email&lt;/th&gt; &lt;th style=&quot;border: 1px solid black;&quot;&gt;Phone&lt;/th&gt;    &lt;/tr&gt;</stringValue>
+        </value>
+    </variables>
+    <variables>
+        <name>ThisRole</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

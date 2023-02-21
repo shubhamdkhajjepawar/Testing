@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>MO-Agreement Signatory</fullName>
+        <default>false</default>
+        <label>MO-Agreement Signatory</label>
+    </customValue>
+    <customValue>
+        <fullName>SR Program Coordinator</fullName>
+        <default>false</default>
+        <label>SR Program Coordinator</label>
+    </customValue>
+    <customValue>
+        <fullName>SR Facilitator</fullName>
+        <default>false</default>
+        <label>SR Facilitator</label>
+    </customValue>
+    <customValue>
+        <fullName>Finance Contact</fullName>
+        <default>false</default>
+        <label>Finance Contact</label>
+    </customValue>
+    <customValue>
+        <fullName>MO-Legal Contact (If to Member)</fullName>
+        <default>false</default>
+        <label>MO-Legal Contact (If to Member)</label>
+    </customValue>
+    <customValue>
+        <fullName>SR Planning Committee</fullName>
+        <default>false</default>
+        <label>SR Planning Committee</label>
+    </customValue>
+    <customValue>
+        <fullName>SR Physician/Clinical Leader</fullName>
+        <default>false</default>
+        <label>SR Physician/Clinical Leader</label>
+    </customValue>
+    <customValue>
+        <fullName>Organizational Leader</fullName>
+        <default>false</default>
+        <label>Organizational Leader</label>
+    </customValue>
+    <customValue>
+        <fullName>Primary Contact</fullName>
+        <default>false</default>
+        <label>Primary Contact (TBD)</label>
+    </customValue>
+    <customValue>
+        <fullName>Copy Invoice To</fullName>
+        <default>false</default>
+        <label>Copy Invoice To</label>
+    </customValue>
+    <customValue>
+        <fullName>PR Contact</fullName>
+        <default>false</default>
+        <label>PR Contact</label>
+    </customValue>
+    <customValue>
+        <fullName>System Membership Contact</fullName>
+        <default>false</default>
+        <label>System Contact - Membership &amp; Agreement</label>
+    </customValue>
+    <customValue>
+        <fullName>System Contact - Member Communications</fullName>
+        <default>false</default>
+        <label>System Contact - Member Communications</label>
+    </customValue>
+    <customValue>
+        <fullName>System Steering Committee</fullName>
+        <default>false</default>
+        <label>System Steering Committee</label>
+    </customValue>
+    <customValue>
+        <fullName>Schwartz Center System Champion</fullName>
+        <default>false</default>
+        <label>Schwartz Center System Champion</label>
+    </customValue>
+    <customValue>
+        <fullName>Facilitator WHO SHALL NOT BE EMAILED, EVER</fullName>
+        <default>false</default>
+        <label>Facilitator WHO SHALL NOT BE EMAILED, EVER</label>
+    </customValue>
+    <customValue>
+        <fullName>C-Suite/NCCY Contact</fullName>
+        <default>false</default>
+        <label>C-Suite/NCCY Contact</label>
+    </customValue>
+    <customValue>
+        <fullName>SFA Clinical Leader</fullName>
+        <default>false</default>
+        <label>SFA Clinical Leader</label>
+    </customValue>
+    <customValue>
+        <fullName>SFA Trainer</fullName>
+        <default>false</default>
+        <label>SFA Trainer</label>
+    </customValue>
+    <customValue>
+        <fullName>SFA Coordinator</fullName>
+        <default>false</default>
+        <label>SFA Coordinator</label>
+    </customValue>
+    <customValue>
+        <fullName>SFA Peer Support</fullName>
+        <default>false</default>
+        <label>SFA Peer Support</label>
+    </customValue>
+    <customValue>
+        <fullName>SFA Project Manager</fullName>
+        <default>false</default>
+        <label>SFA Project Manager</label>
+    </customValue>
+    <customValue>
+        <fullName>SFA Other</fullName>
+        <default>false</default>
+        <label>SFA Other</label>
+    </customValue>
+    <customValue>
+        <fullName>UBSR Facilitator</fullName>
+        <default>false</default>
+        <label>UBSR Facilitator</label>
+    </customValue>
+    <customValue>
+        <fullName>UBSR Facilitator 2</fullName>
+        <default>false</default>
+        <label>UBSR Facilitator 2</label>
+    </customValue>
+    <customValue>
+        <fullName>Continuing Education Contact</fullName>
+        <default>false</default>
+        <label>Continuing Education Contact</label>
+    </customValue>
+    <customValue>
+        <fullName>MO-System Membership Agreement Signatory</fullName>
+        <default>false</default>
+        <label>MO-System Membership Agreement Signatory</label>
+    </customValue>
+    <customValue>
+        <fullName>MO-System Membership Primary Contact</fullName>
+        <default>false</default>
+        <label>MO-System Membership Primary Contact</label>
+    </customValue>
+    <customValue>
+        <fullName>MO-System Membership Contact</fullName>
+        <default>false</default>
+        <label>MO-System Membership Contact</label>
+    </customValue>
+    <customValue>
+        <fullName>MEA Primary Contact</fullName>
+        <default>false</default>
+        <label>MEA Primary Contact</label>
+    </customValue>
+    <customValue>
+        <fullName>HHI Executive Sponsor</fullName>
+        <default>false</default>
+        <label>HHI Executive Sponsor</label>
+    </customValue>
+    <customValue>
+        <fullName>HHI Leadership Team</fullName>
+        <default>false</default>
+        <label>HHI Leadership Team</label>
+    </customValue>
+    <customValue>
+        <fullName>HHI IRB Contact</fullName>
+        <default>false</default>
+        <label>HHI IRB Contact</label>
+    </customValue>
+    <customValue>
+        <fullName>HHI Primary Contact</fullName>
+        <default>false</default>
+        <label>HHI Primary Contact</label>
+    </customValue>
+    <customValue>
+        <fullName>HHI Team Leader</fullName>
+        <default>false</default>
+        <label>HHI Team Leader</label>
+    </customValue>
+    <customValue>
+        <fullName>UBSR Senior Manager</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>UBSR Senior Manager</label>
+    </customValue>
+    <customValue>
+        <fullName>UBSR Planning</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>UBSR Planning</label>
+    </customValue>
+    <customValue>
+        <fullName>Facilitator Mentor</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Facilitator Mentor</label>
+    </customValue>
+    <customValue>
+        <fullName>UBSR Coordinator</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>UBSR Coordinator</label>
+    </customValue>
+    <customValue>
+        <fullName>UBSR Billing Contact</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>UBSR Billing Contact</label>
+    </customValue>
+    <customValue>
+        <fullName>Physician Leader Mentor</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Physician Leader Mentor</label>
+    </customValue>
+    <masterLabel>Role</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

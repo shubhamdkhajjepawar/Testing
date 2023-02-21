@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Agreement_Modification__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Type(s) of modification made to the membership agreement</inlineHelpText>
+    <label>Agreement Modification</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Agreement term (1 year standard)</fullName>
+                <default>false</default>
+                <label>Agreement term (1 year standard)</label>
+            </value>
+            <value>
+                <fullName>Cancellation terms (60 days standard)</fullName>
+                <default>false</default>
+                <label>Cancellation terms (60 days standard)</label>
+            </value>
+            <value>
+                <fullName>Consultation visit access</fullName>
+                <default>false</default>
+                <label>Consultation visit access</label>
+            </value>
+            <value>
+                <fullName>Evaluation forms (1 month standard)</fullName>
+                <default>false</default>
+                <label>Evaluation forms (1 month standard)</label>
+            </value>
+            <value>
+                <fullName>HIPAA</fullName>
+                <default>false</default>
+                <label>HIPAA</label>
+            </value>
+            <value>
+                <fullName>Indemnification</fullName>
+                <default>false</default>
+                <label>Indemnification</label>
+            </value>
+            <value>
+                <fullName>Insurance</fullName>
+                <default>false</default>
+                <label>Insurance</label>
+            </value>
+            <value>
+                <fullName>Member Listing</fullName>
+                <default>false</default>
+                <label>Member Listing</label>
+            </value>
+            <value>
+                <fullName>Payment terms (45 days standard)</fullName>
+                <default>false</default>
+                <label>Payment terms (45 days standard)</label>
+            </value>
+            <value>
+                <fullName>Publications</fullName>
+                <default>false</default>
+                <label>Publications</label>
+            </value>
+            <value>
+                <fullName>Recording</fullName>
+                <default>false</default>
+                <label>Recording</label>
+            </value>
+            <value>
+                <fullName>Rounds per year (minimum 6 standard)</fullName>
+                <default>false</default>
+                <label>Rounds per year (minimum 6 standard)</label>
+            </value>
+            <value>
+                <fullName>Sign-in sheets</fullName>
+                <default>false</default>
+                <label>Sign-in sheets</label>
+            </value>
+            <value>
+                <fullName>Termination terms (30 days standard)</fullName>
+                <default>false</default>
+                <label>Termination terms (30 days standard)</label>
+            </value>
+            <value>
+                <fullName>Visitors</fullName>
+                <default>false</default>
+                <label>Visitors</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Multi-Year Pricing</fullName>
+                <default>false</default>
+                <label>Multi-Year Pricing</label>
+            </value>
+            <value>
+                <fullName>Pricing/Invoicing</fullName>
+                <default>false</default>
+                <label>Pricing/Invoicing</label>
+            </value>
+            <value>
+                <fullName>Auto-Renewal</fullName>
+                <default>false</default>
+                <label>Auto-Renewal</label>
+            </value>
+            <value>
+                <fullName>Agreement Document</fullName>
+                <default>false</default>
+                <label>Agreement Document</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>10</visibleLines>
+</CustomField>

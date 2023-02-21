@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label></label>
+    <name>Course__c</name>
+    <picklistValues>
+        <masterLabel>OLD-Stress First Aid for Healthcare Workers - Train the Trainer - Fall 2020</masterLabel>
+        <translation></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>OLD-Stress First Aid for Healthcare Workers - Train the Trainer v.4</masterLabel>
+        <translation></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Stress FIrst Aid TTT Informational Webinar</masterLabel>
+        <translation></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Stress First Aid Basics Webinar</masterLabel>
+        <translation></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Stress First Aid for Healthcare Workers Train the Trainer Course</masterLabel>
+        <translation></translation>
+    </picklistValues>
+</CustomFieldTranslation>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <layouts>
+        <layout>Lead Layout</layout>
+        <sections>
+            <label></label>
+            <section>Additional Information</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Individual Site Membership Inquiry</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>System Membership Inquiry</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Your Contact Information</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Your Organization</section>
+        </sections>
+    </layouts>
+</CustomObjectTranslation>

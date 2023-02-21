@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ConnectedApp xmlns="http://soap.sforce.com/2006/04/metadata">
+    <contactEmail>steven@launchpad.co</contactEmail>
+    <label>Schwarts Login</label>
+    <samlConfig>
+        <acsUrl>https://www.theschwartzcenter.org/</acsUrl>
+        <encryptionType>AES_128</encryptionType>
+        <entityUrl>https://www.theschwartzcenter.org/wp-content/plugins/miniorange-saml-20-single-sign-on/</entityUrl>
+        <issuer>https://schwartzcenter.my.salesforce.com</issuer>
+        <samlIdpSLOBindingEnum>RedirectBinding</samlIdpSLOBindingEnum>
+        <samlNameIdFormat>Unspecified</samlNameIdFormat>
+        <samlSigningAlgoType>SHA1</samlSigningAlgoType>
+        <samlSloUrl>https://www.theschwartzcenter.org/</samlSloUrl>
+        <samlSubjectType>UserId</samlSubjectType>
+    </samlConfig>
+    <startUrl>https://www.theschwartzcenter.org/saml</startUrl>
+</ConnectedApp>

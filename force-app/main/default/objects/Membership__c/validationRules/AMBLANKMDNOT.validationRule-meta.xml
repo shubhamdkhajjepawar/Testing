@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AMBLANKMDNOT</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+AND( ISBLANK ( Agreement_Modification__c ),
+NOT ISBLANK( Modification_Details__c )),
+OR(
+Agreement_Modification_Expiration__c &lt;&gt;TODAY(),
+ISNULL(Agreement_Modification_Expiration__c)
+)
+)</errorConditionFormula>
+    <errorDisplayField>Agreement_Modification__c</errorDisplayField>
+    <errorMessage>This field cannot be left blank unless the Modification Detail field is also blank.</errorMessage>
+</ValidationRule>

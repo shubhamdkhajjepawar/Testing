@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <layouts>
+        <layout>Account Layout</layout>
+        <sections>
+            <label></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Designations and Affiliations</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Fee Waiver</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Member Pipeline</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Most Recent Consultation Visit</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Onboarding Activity</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Pipeline Details</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Rounds Program</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Health System Layout</layout>
+        <sections>
+            <label></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Designations and Affiliations</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Fee Waiver</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Intacct</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Member Pipeline</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Most Recent Consultation Visit</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Nomination History</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Rounds Program</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Member Layout</layout>
+        <sections>
+            <label></label>
+            <section>Consultation Visit</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Designations and Affiliations</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Intacct</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>New Section</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Prospect</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Prospect Source</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Testing automations</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label></label>
+        <name>Child_Account</name>
+    </quickActions>
+</CustomObjectTranslation>

@@ -1,0 +1,6 @@
+<apex:page standardController="Account">
+  <!-- This page is only used for launching the new inquiry flow from button on member pipeline page -->
+  <flow:interview name="Update_Former_Member_to_Inquiry" finishLocation="/{!Account.Id}">
+      <apex:param name="varAccountID" value="{!Account.Id}"/>
+  </flow:interview>
+</apex:page>

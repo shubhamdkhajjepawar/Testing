@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Inquired_On_Hold_Followup</fullName>
+        <description>Inquired On Hold Followup</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Followup_Assigned_to__c</field>
+            <type>userLookup</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Inquired_On_Hold_Followup_Reminder</template>
+    </alerts>
+    <alerts>
+        <fullName>Inquired_on_Hold</fullName>
+        <description>Inquired on Hold</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Followup_Assigned_to__c</field>
+            <type>userLookup</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Inquiry_on_Hold</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>ia_crm__Set_Reseller_Type</fullName>
+        <field>ia_crm__Reseller_Type__c</field>
+        <formula>$Setup.ia_crm__Reseller_Types__c.ia_crm__Types__c</formula>
+        <name>Set Reseller Type</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>ia_crm__Set Reseller Type</fullName>
+        <actions>
+            <name>ia_crm__Set_Reseller_Type</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>If(And(ia_crm__Reseller_Type__c &lt;&gt; $Setup.ia_crm__Reseller_Types__c.ia_crm__Types__c),true,false)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+</Workflow>

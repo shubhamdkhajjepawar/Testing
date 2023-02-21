@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>System_Invoicing__c</fullName>
+    <externalId>false</externalId>
+    <label>System Invoicing</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Invoice_System_Only</fullName>
+                <default>false</default>
+                <label>Invoice System Only</label>
+            </value>
+            <value>
+                <fullName>Invoice_Individual_site</fullName>
+                <default>false</default>
+                <label>Invoice Individual Sites</label>
+            </value>
+            <value>
+                <fullName>Site-level agreements - system invoice</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Site-level agreements - system invoice</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

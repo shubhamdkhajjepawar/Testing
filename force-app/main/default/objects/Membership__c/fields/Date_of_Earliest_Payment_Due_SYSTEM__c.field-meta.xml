@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Date_of_Earliest_Payment_Due_SYSTEM__c</fullName>
+    <description>Updated through rollup - displays date of earliest &apos;Renewal Date&apos; from pending opportunity</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Updated through rollup - displays date of earliest &apos;Renewal Date&apos; from pending opportunity</inlineHelpText>
+    <label>Date of Earliest Payment Due_SYSTEM</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

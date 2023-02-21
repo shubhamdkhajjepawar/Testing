@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Role_Should_be_mandatory</fullName>
+    <active>false</active>
+    <errorConditionFormula>IF( ISPICKVAL(Program__r.Program_Type__c, &apos;The Schwartz Rounds&apos;), 
+   NOT(OR( 
+          ISPICKVAL(Role__c , &apos;MO-Agreement Signatory&apos;) ,
+          ISPICKVAL(Role__c , &apos;SR Program Coordinator&apos;),
+          ISPICKVAL(Role__c , &apos;SR Facilitator&apos;),
+          ISPICKVAL(Role__c , &apos;Finance Contact&apos;),
+          ISPICKVAL(Role__c , &apos;MO-Legal Contact (If to Member)&apos;),
+          ISPICKVAL(Role__c , &apos;SR Planning Committee&apos;) ,
+          ISPICKVAL(Role__c , &apos;SR Physician/Clinical Leader&apos;),
+          ISPICKVAL(Role__c , &apos;Organizational Leader&apos;),
+          ISPICKVAL(Role__c , &apos;Primary Contact&apos;),
+          ISPICKVAL(Role__c , &apos;Copy Invoice To&apos;),
+          ISPICKVAL(Role__c , &apos;PR Contact&apos;),
+          ISPICKVAL(Role__c , &apos;System Membership Contact&apos;),
+          ISPICKVAL(Role__c , &apos;System Contact - Member Communications&apos;),
+          ISPICKVAL(Role__c , &apos;System Steering Committee&apos;),
+          ISPICKVAL(Role__c , &apos;Schwartz Center System Champion&apos;),
+          ISPICKVAL(Role__c , &apos;Facilitator WHO SHALL NOT BE EMAILED, EVER&apos;),
+          ISPICKVAL(Role__c , &apos;C-Suite/NCCY Contact&apos;))),
+IF( ISPICKVAL(Program__r.Program_Type__c, &apos;The Healing Healthcare Initiative (HHI)&apos;), 
+   NOT(OR( 
+          ISPICKVAL(Role__c , &apos;HHI Executive Sponsor&apos;) ,
+          ISPICKVAL(Role__c , &apos;HHI Leadership Team&apos;),
+          ISPICKVAL(Role__c , &apos;HHI IRB Contact&apos;))),
+IF( ISPICKVAL(Program__r.Program_Type__c, &apos;Stress first aid (SFA)&apos;), 
+   NOT(OR( 
+          ISPICKVAL(Role__c , &apos;SFA Clinical Leader&apos;),
+          ISPICKVAL(Role__c , &apos;SFA Trainer&apos;),
+          ISPICKVAL(Role__c , &apos;SFA Coordinator&apos;),
+          ISPICKVAL(Role__c , &apos;SFA Peer Support&apos;),
+          ISPICKVAL(Role__c , &apos;SFA Project Manager&apos;),
+          ISPICKVAL(Role__c , &apos;SFA Other&apos;))),
+ NULL)))</errorConditionFormula>
+    <errorDisplayField>Role__c</errorDisplayField>
+    <errorMessage>Role as per Program</errorMessage>
+</ValidationRule>

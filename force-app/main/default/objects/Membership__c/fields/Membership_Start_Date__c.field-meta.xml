@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Membership_Start_Date__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( NOT(ISBLANK(Overridden_Membership_Start_Date__c)),
+Overridden_Membership_Start_Date__c,
+IF( 
+AND(
+ISBLANK(Overridden_Membership_Start_Date__c), 
+Initial_Payment_Date__c &gt;=  Agreement_Date__c ),
+Initial_Payment_Date__c,
+IF( 
+AND(
+ISBLANK(Overridden_Membership_Start_Date__c), 
+Initial_Payment_Date__c &lt;  Agreement_Date__c ),
+Agreement_Date__c,
+NULL)))</formula>
+    <inlineHelpText>Calculates the later of Initial Payment Date and Agreement Date</inlineHelpText>
+    <label>Membership Start Date</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <brand>
+        <headerColor>#0070D2</headerColor>
+        <shouldOverrideOrgTheme>false</shouldOverrideOrgTheme>
+    </brand>
+    <formFactors>Small</formFactors>
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <isNavTabPersistenceDisabled>false</isNavTabPersistenceDisabled>
+    <label>LearnUpon Tabs</label>
+    <navType>Standard</navType>
+    <tabs>LearnUponP__LearnUpon</tabs>
+    <tabs>LearnUponP__LearnUpon_API_Call_Logs__c</tabs>
+    <tabs>LearnUponP__LearnUpon_API_Setup</tabs>
+    <tabs>LearnUponP__LearnUponContactEnrollment__c</tabs>
+    <tabs>LearnUponP__LearnUponEnrollment__c</tabs>
+    <tabs>LearnUponP__LearnUponCustomData__c</tabs>
+    <tabs>LearnUponP__LearnUponLearningPathContactEnrollment__c</tabs>
+    <tabs>LearnUponP__LearnUponLearningPathEnrollment__c</tabs>
+    <tabs>LearnUponP__LearnUpon_Portal__c</tabs>
+    <tabs>LearnUponP__LearnUpon_Portal_Membership__c</tabs>
+    <tabs>NEW_Rounds_Program__c</tabs>
+    <tabs>Current_Roles__c</tabs>
+    <tabs>Past_Role__c</tabs>
+    <tabs>Caregiver_Recognition__c</tabs>
+    <tabs>Member_Pipeline__c</tabs>
+    <tabs>Consultation_Visit__c</tabs>
+    <tabs>Program__c</tabs>
+    <tabs>Affiliation__c</tabs>
+    <uiType>Lightning</uiType>
+    <utilityBar>LearnUpon_Tabs_UtilityBar</utilityBar>
+</CustomApplication>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>EA_Written_Off_Active_Notification_to_Finance</fullName>
+        <description>EA_Written Off - Active Notification to Finance</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>jfiske@theschwartzcenter.org</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <recipient>punderhill@theschwartzcenter.org</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/ET_Opportunity_Written_Off_Active</template>
+    </alerts>
+    <alerts>
+        <fullName>Opp_Written_Off_Pending_Notification</fullName>
+        <description>Opp Written Off - Pending Notification</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>ltellis@theschwartzcenter.org</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <recipient>scarey@theschwartzcenter.org</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/ET_Opp_Written_Off_Pending</template>
+    </alerts>
+    <alerts>
+        <fullName>Opportunity_write_off_approved</fullName>
+        <description>Opportunity write off approved</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>aferrato@theschwartzcenter.org</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <recipient>jfiske@theschwartzcenter.org</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <recipient>ltellis@theschwartzcenter.org</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <recipient>punderhill@theschwartzcenter.org</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <recipient>rpheap@theschwartzcenter.org</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/ET_Opportunity_Written_Off</template>
+    </alerts>
+    <alerts>
+        <fullName>Written_Off_Notification_to_Finance</fullName>
+        <description>Written Off Notification to Finance</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>punderhill@theschwartzcenter.org</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/ET_Opportunity_Written_Off</template>
+    </alerts>
+    <rules>
+        <fullName>WR_Opportunity Written Off</fullName>
+        <actions>
+            <name>Opportunity_write_off_approved</name>
+            <type>Alert</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Opportunity.StageName</field>
+            <operation>equals</operation>
+            <value>Written Off</value>
+        </criteriaItems>
+        <description>When an opportunity is written off b/c membership is cancelled, select recipients are notified</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>WR_Opportunity Written Off Active</fullName>
+        <actions>
+            <name>EA_Written_Off_Active_Notification_to_Finance</name>
+            <type>Alert</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Opportunity.StageName</field>
+            <operation>equals</operation>
+            <value>Written Off - Active</value>
+        </criteriaItems>
+        <description>When an opportunity is written off but membership is still active, select recipients are notified</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+</Workflow>

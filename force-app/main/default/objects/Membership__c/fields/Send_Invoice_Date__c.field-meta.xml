@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Send_Invoice_Date__c</fullName>
+    <externalId>false</externalId>
+    <formula>Payment_Due_Date__c  - 45</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Invoice should be prepared and sent on this date, the payment due date minus 60 days</inlineHelpText>
+    <label>Send Invoice Date</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

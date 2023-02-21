@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Require_Last_Name_if_No_Contact_Selected</fullName>
+    <active>true</active>
+    <description>Requires at least a last name in attendee details if no contact is selected in lookup.</description>
+    <errorConditionFormula>AND(
+ISBLANK(Attendee_Last_Name__c ),
+ISBLANK(Contact__c )
+)</errorConditionFormula>
+    <errorDisplayField>Attendee_Last_Name__c</errorDisplayField>
+    <errorMessage>You must provide a least a last name.</errorMessage>
+</ValidationRule>

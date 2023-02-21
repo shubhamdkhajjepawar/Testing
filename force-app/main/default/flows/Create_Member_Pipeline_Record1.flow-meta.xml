@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>56.0</apiVersion>
+    <description>Creates new Member Pipeline record when member status changes and launches flow that archives old MP record</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>RecordtypeId</name>
+        <dataType>String</dataType>
+        <expression>if(contains(text({!$Record.Member_Status__c}), &apos;Approached&apos;),&apos;01236000001HtPo&apos;,
+if(contains(text({!$Record.Member_Status__c}), &apos;Prospect&apos;),&apos;01236000001HtPs&apos;,
+if(OR(
+contains(text({!$Record.Member_Status__c}), &apos;Pending - On Hold&apos;),
+contains(text({!$Record.Member_Status__c}), &apos;Pending - Withdrawn&apos;),
+contains(text({!$Record.Member_Status__c}), &apos;Inquired&apos;)
+),
+&apos;01236000001HtPr&apos;,
+if(contains(text({!$Record.Member_Status__c}), &apos;Former Member&apos;),&apos;01236000001HtPp&apos;,
+if(contains(text({!$Record.Member_Status__c}), &apos;Former Rounds Site&apos;),&apos;01236000001HtPq&apos;,
+if(contains(text({!$Record.Member_Status__c}), &apos;Agreement&apos;),&apos;01236000001HtPn&apos;,
+if(contains(text({!$Record.Member_Status__c}), &apos;Active&apos;),&apos;01236000001HtPm&apos;,
+&apos;01236000001HtPo&apos;
+)))))))</expression>
+    </formulas>
+    <formulas>
+        <name>Today</name>
+        <dataType>Date</dataType>
+        <expression>TODAY()</expression>
+    </formulas>
+    <interviewLabel>Create Member Pipeline Record {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Create Member Pipeline Record</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordCreates>
+        <name>Create_New_MP_Record</name>
+        <label>Create New MP Record</label>
+        <locationX>176</locationX>
+        <locationY>455</locationY>
+        <connector>
+            <targetReference>Clear_Fields</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Account__c</field>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Date_of_Status_Change__c</field>
+            <value>
+                <elementReference>Today</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Member_Status__c</field>
+            <value>
+                <elementReference>$Record.Member_Status__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>RecordTypeId</field>
+            <value>
+                <elementReference>RecordtypeId</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Member_Pipeline__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordUpdates>
+        <name>Clear_Fields</name>
+        <label>Clear Fields</label>
+        <locationX>176</locationX>
+        <locationY>575</locationY>
+        <inputAssignments>
+            <field>Date_Put_On_Hold__c</field>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Date_Withdrawn__c</field>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Followup_Assigned_to__c</field>
+            <value>
+                <stringValue></stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Followup_Date__c</field>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Inquiry_Notes__c</field>
+            <value>
+                <stringValue></stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Prospect_Notes__c</field>
+            <value>
+                <stringValue></stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Reason_for_Stopping__c</field>
+            <value>
+                <stringValue></stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Reason_for_Withdrawal__c</field>
+            <value>
+                <stringValue></stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Reminder_Date__c</field>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Stopped_Date__c</field>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Archive_Old_MP_Record</targetReference>
+        </connector>
+        <filterLogic>1 AND 2 AND (3 OR 4)</filterLogic>
+        <filters>
+            <field>Member_Status__c</field>
+            <operator>IsChanged</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Member_Status__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Member_Status__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>Not Applicable</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Member_Status__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>Removed from Pipeline</stringValue>
+            </value>
+        </filters>
+        <object>Account</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <subflows>
+        <name>Archive_Old_MP_Record</name>
+        <label>Archive Old MP Record</label>
+        <locationX>176</locationX>
+        <locationY>335</locationY>
+        <connector>
+            <targetReference>Create_New_MP_Record</targetReference>
+        </connector>
+        <flowName>Archive_Member_Pipeline_Record</flowName>
+        <inputAssignments>
+            <name>varAccountID</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </subflows>
+</Flow>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <layouts>
+        <layout>Organization Contact</layout>
+        <sections>
+            <label></label>
+            <section>Intacct</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>LearnUpon</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>New Section</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label></label>
+        <name>Request_Contact_Updates</name>
+    </quickActions>
+</CustomObjectTranslation>

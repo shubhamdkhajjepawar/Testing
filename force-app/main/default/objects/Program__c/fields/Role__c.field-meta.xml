@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Role__c</fullName>
+    <externalId>false</externalId>
+    <label>Role</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Program_Type__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetName>Role</valueSetName>
+        <valueSettings>
+            <controllingFieldValue>The Schwartz Rounds</controllingFieldValue>
+            <valueName>MO-Agreement Signatory</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>The Schwartz Rounds</controllingFieldValue>
+            <valueName>SR Program Coordinator</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>The Schwartz Rounds</controllingFieldValue>
+            <valueName>SR Facilitator</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>The Schwartz Rounds</controllingFieldValue>
+            <valueName>Finance Contact</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>The Schwartz Rounds</controllingFieldValue>
+            <valueName>MO-Legal Contact (If to Member)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>The Schwartz Rounds</controllingFieldValue>
+            <valueName>SR Planning Committee</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>The Schwartz Rounds</controllingFieldValue>
+            <valueName>SR Physician/Clinical Leader</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>The Schwartz Rounds</controllingFieldValue>
+            <valueName>Organizational Leader</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>The Schwartz Rounds</controllingFieldValue>
+            <valueName>Primary Contact</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>The Schwartz Rounds</controllingFieldValue>
+            <valueName>Copy Invoice To</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>The Schwartz Rounds</controllingFieldValue>
+            <valueName>PR Contact</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>The Schwartz Rounds</controllingFieldValue>
+            <valueName>System Membership Contact</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>The Schwartz Rounds</controllingFieldValue>
+            <valueName>System Contact - Member Communications</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>The Schwartz Rounds</controllingFieldValue>
+            <valueName>System Steering Committee</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>The Schwartz Rounds</controllingFieldValue>
+            <valueName>Schwartz Center System Champion</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>The Schwartz Rounds</controllingFieldValue>
+            <valueName>Facilitator WHO SHALL NOT BE EMAILED, EVER</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>The Schwartz Rounds</controllingFieldValue>
+            <valueName>C-Suite/NCCY Contact</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>The Healing Healthcare Initiative (HHI)</controllingFieldValue>
+            <valueName>HHI Executive Sponsor</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>The Healing Healthcare Initiative (HHI)</controllingFieldValue>
+            <valueName>HHI Leadership Team</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>The Healing Healthcare Initiative (HHI)</controllingFieldValue>
+            <valueName>HHI IRB Contact</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Stress first aid (SFA)</controllingFieldValue>
+            <valueName>SFA Clinical Leader</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Stress first aid (SFA)</controllingFieldValue>
+            <valueName>SFA Trainer</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Stress first aid (SFA)</controllingFieldValue>
+            <valueName>SFA Coordinator</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Stress first aid (SFA)</controllingFieldValue>
+            <valueName>SFA Peer Support</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Stress first aid (SFA)</controllingFieldValue>
+            <valueName>SFA Project Manager</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Stress first aid (SFA)</controllingFieldValue>
+            <valueName>SFA Other</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

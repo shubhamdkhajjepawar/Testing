@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Course__c</fullName>
+    <externalId>false</externalId>
+    <label>Course</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Stress First Aid Basics Webinar</fullName>
+                <default>false</default>
+                <label>Stress First Aid Basics Webinar</label>
+            </value>
+            <value>
+                <fullName>Stress FIrst Aid TTT Informational Webinar</fullName>
+                <default>false</default>
+                <label>Stress FIrst Aid TTT Informational Webinar</label>
+            </value>
+            <value>
+                <fullName>Stress First Aid for Healthcare Workers Train the Trainer Course</fullName>
+                <default>false</default>
+                <label>Stress First Aid for Healthcare Workers Train the Trainer Course</label>
+            </value>
+            <value>
+                <fullName>Stress First Aid for Healthcare Workers - Train the Trainer - Fall 2020</fullName>
+                <default>false</default>
+                <label>OLD-Stress First Aid for Healthcare Workers - Train the Trainer - Fall 2020</label>
+            </value>
+            <value>
+                <fullName>Stress First Aid for Healthcare Workers - Train the Trainer v.4</fullName>
+                <default>false</default>
+                <label>OLD-Stress First Aid for Healthcare Workers - Train the Trainer v.4</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

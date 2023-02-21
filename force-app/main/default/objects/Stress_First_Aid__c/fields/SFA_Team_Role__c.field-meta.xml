@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SFA_Team_Role__c</fullName>
+    <externalId>false</externalId>
+    <label>SFA Team Role</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>SFA Clinical Leader</fullName>
+                <default>false</default>
+                <label>SFA Clinical Leader</label>
+            </value>
+            <value>
+                <fullName>SFA Trainer</fullName>
+                <default>false</default>
+                <label>SFA Trainer</label>
+            </value>
+            <value>
+                <fullName>SFA Peer Support</fullName>
+                <default>false</default>
+                <label>SFA Peer Support</label>
+            </value>
+            <value>
+                <fullName>SFA Organizational Leader</fullName>
+                <default>false</default>
+                <label>SFA Organizational Leader</label>
+            </value>
+            <value>
+                <fullName>SFA Program Coordinator</fullName>
+                <default>false</default>
+                <label>SFA Program Coordinator</label>
+            </value>
+            <value>
+                <fullName>Project Manager</fullName>
+                <default>false</default>
+                <label>Project Manager</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>6</visibleLines>
+</CustomField>

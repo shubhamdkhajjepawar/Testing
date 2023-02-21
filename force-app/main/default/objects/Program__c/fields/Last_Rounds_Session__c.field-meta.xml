@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Last_Rounds_Session__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>The most recent Rounds session for which we have received an evaluation. Data is auto-populated from the Rounds Session object. If blank, see the &quot;Last Evaluation&quot; field.</inlineHelpText>
+    <label>Last Rounds Session</label>
+    <summarizedField>Rounds_Session__c.Session_Date__c</summarizedField>
+    <summaryForeignKey>Rounds_Session__c.Programs__c</summaryForeignKey>
+    <summaryOperation>max</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

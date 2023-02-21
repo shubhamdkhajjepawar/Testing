@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Member Pipeline</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Member Pipelines</value>
+    </caseValues>
+    <layouts>
+        <layout>Active Member</layout>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>testing</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Agreement</layout>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Approached - Insufficient Interest</layout>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Testing</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Former Member</layout>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Former Rounds Site</layout>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Inquired</layout>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Prospect</layout>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label></label>
+        <name>Active_Member</name>
+    </recordTypes>
+    <recordTypes>
+        <label></label>
+        <name>Agreement</name>
+    </recordTypes>
+    <recordTypes>
+        <label></label>
+        <name>Approached_Insufficient_Interest</name>
+    </recordTypes>
+    <recordTypes>
+        <label></label>
+        <name>Former_Member</name>
+    </recordTypes>
+    <recordTypes>
+        <label></label>
+        <name>Former_Rounds_Site</name>
+    </recordTypes>
+    <recordTypes>
+        <label></label>
+        <name>Inquired</name>
+    </recordTypes>
+    <recordTypes>
+        <label></label>
+        <name>Prospect</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

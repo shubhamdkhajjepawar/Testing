@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Type__c</fullName>
+    <externalId>false</externalId>
+    <label>Type</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Boston Resiliency Fund (LU)</fullName>
+                <default>false</default>
+                <label>Boston Resiliency Fund (LU)</label>
+            </value>
+            <value>
+                <fullName>SFA Webinar (website)</fullName>
+                <default>false</default>
+                <label>SFA Webinar (website)</label>
+            </value>
+            <value>
+                <fullName>SFA Train the Trainer (LU)</fullName>
+                <default>false</default>
+                <label>SFA Train the Trainer (LU)</label>
+            </value>
+            <value>
+                <fullName>SFA Info Webinar</fullName>
+                <default>false</default>
+                <label>SFA Info Webinar</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

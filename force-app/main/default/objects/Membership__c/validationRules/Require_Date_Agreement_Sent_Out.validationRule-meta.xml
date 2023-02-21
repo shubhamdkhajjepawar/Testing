@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Require_Date_Agreement_Sent_Out</fullName>
+    <active>true</active>
+    <errorConditionFormula>and(
+or(
+ispickval(Member_Status__c,&apos;Agreement Out for Signature/Waiting for Payment&apos;),
+ispickval(Member_Status__c,&apos;Agreement Out for Signature/Payment Received&apos;)
+),
+isblank(Date_Original_Agreement_was_Sent_Out__c )
+)</errorConditionFormula>
+    <errorDisplayField>Date_Original_Agreement_was_Sent_Out__c</errorDisplayField>
+    <errorMessage>Please provide that date that the agreement was sent out.</errorMessage>
+</ValidationRule>

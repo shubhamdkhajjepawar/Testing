@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>System_Member_Site__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>System Member Site: This site is part of a system membership in which the system is a single member paying one central invoice for multiple sites.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>System Member Site: This site is part of a system membership in which the system is a single member paying one central invoice for multiple sites.</inlineHelpText>
+    <label>Invoice System Only</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

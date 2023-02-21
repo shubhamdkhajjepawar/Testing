@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Topic_Tags__c</fullName>
+    <externalId>false</externalId>
+    <label>Topic Tags</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Caregiver as Patient</fullName>
+                <default>false</default>
+                <label>Caregiver as Patient</label>
+            </value>
+            <value>
+                <fullName>Caregiver Roles</fullName>
+                <default>false</default>
+                <label>Caregiver Roles</label>
+            </value>
+            <value>
+                <fullName>Challenging Patient Situations</fullName>
+                <default>false</default>
+                <label>Challenging Patient Situations</label>
+            </value>
+            <value>
+                <fullName>Colleagues</fullName>
+                <default>false</default>
+                <label>Collaboration, Teamwork, and Communication with Colleagues</label>
+            </value>
+            <value>
+                <fullName>Compassion and COVID</fullName>
+                <default>false</default>
+                <label>Compassion and COVID</label>
+            </value>
+            <value>
+                <fullName>Compassionate Care</fullName>
+                <default>false</default>
+                <label>Compassionate Care</label>
+            </value>
+            <value>
+                <fullName>Condition or Disease Specific</fullName>
+                <default>false</default>
+                <label>Condition or Disease Specific</label>
+            </value>
+            <value>
+                <fullName>Culture, Ethnicity, and Race</fullName>
+                <default>false</default>
+                <label>Culture, Ethnicity, and Race</label>
+            </value>
+            <value>
+                <fullName>Disasters</fullName>
+                <default>false</default>
+                <label>Disasters</label>
+            </value>
+            <value>
+                <fullName>Domestic Violence and Human Trafficking</fullName>
+                <default>false</default>
+                <label>Domestic Violence and Human Trafficking</label>
+            </value>
+            <value>
+                <fullName>Elders</fullName>
+                <default>false</default>
+                <label>Elders</label>
+            </value>
+            <value>
+                <fullName>End of Life Care</fullName>
+                <default>false</default>
+                <label>End of Life Care</label>
+            </value>
+            <value>
+                <fullName>Ethics</fullName>
+                <default>false</default>
+                <label>Ethics</label>
+            </value>
+            <value>
+                <fullName>Family Members</fullName>
+                <default>false</default>
+                <label>Family Members</label>
+            </value>
+            <value>
+                <fullName>Gender and Sexuality</fullName>
+                <default>false</default>
+                <label>Gender and Sexuality</label>
+            </value>
+            <value>
+                <fullName>Grief</fullName>
+                <default>false</default>
+                <label>Grief</label>
+            </value>
+            <value>
+                <fullName>Homelessness</fullName>
+                <default>false</default>
+                <label>Homelessness</label>
+            </value>
+            <value>
+                <fullName>Humor</fullName>
+                <default>false</default>
+                <label>Humor</label>
+            </value>
+            <value>
+                <fullName>Immigrants and Refugees</fullName>
+                <default>false</default>
+                <label>Immigrants and Refugees</label>
+            </value>
+            <value>
+                <fullName>Medical Errors, Adverse Outcomes, and Clinical Complications</fullName>
+                <default>false</default>
+                <label>Medical Errors, Adverse Outcomes, and Clinical Complications</label>
+            </value>
+            <value>
+                <fullName>Nutrition</fullName>
+                <default>false</default>
+                <label>Nutrition</label>
+            </value>
+            <value>
+                <fullName>Organ Donation</fullName>
+                <default>false</default>
+                <label>Organ Donation</label>
+            </value>
+            <value>
+                <fullName>Pain</fullName>
+                <default>false</default>
+                <label>Pain</label>
+            </value>
+            <value>
+                <fullName>Patient-Caregiver Relationships and Communication</fullName>
+                <default>false</default>
+                <label>Patient-Caregiver Relationships and Communication</label>
+            </value>
+            <value>
+                <fullName>Patient Narratives</fullName>
+                <default>false</default>
+                <label>Patient Narratives</label>
+            </value>
+            <value>
+                <fullName>Pediatrics</fullName>
+                <default>false</default>
+                <label>Pediatrics</label>
+            </value>
+            <value>
+                <fullName>Resilience and Self-Care for Caregivers</fullName>
+                <default>false</default>
+                <label>Resilience and Self-Care for Caregivers</label>
+            </value>
+            <value>
+                <fullName>Seasonal and Holidays</fullName>
+                <default>false</default>
+                <label>Seasonal and Holidays</label>
+            </value>
+            <value>
+                <fullName>Spirituality and Religion</fullName>
+                <default>false</default>
+                <label>Spirituality and Religion</label>
+            </value>
+            <value>
+                <fullName>Substance Abuse</fullName>
+                <default>false</default>
+                <label>Substance Abuse</label>
+            </value>
+            <value>
+                <fullName>Suicide / Self-Harm</fullName>
+                <default>false</default>
+                <label>Suicide / Self-Harm</label>
+            </value>
+            <value>
+                <fullName>Technology</fullName>
+                <default>false</default>
+                <label>Technology</label>
+            </value>
+            <value>
+                <fullName>Time Management</fullName>
+                <default>false</default>
+                <label>Time Management</label>
+            </value>
+            <value>
+                <fullName>Workforce/Staffing</fullName>
+                <default>false</default>
+                <label>Workforce/Staffing</label>
+            </value>
+            <value>
+                <fullName>Workplace Violence</fullName>
+                <default>false</default>
+                <label>Workplace Violence</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>10</visibleLines>
+</CustomField>

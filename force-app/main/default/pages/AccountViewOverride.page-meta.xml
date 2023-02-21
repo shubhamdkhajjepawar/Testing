@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ApexPage xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>41.0</apiVersion>
+    <availableInTouch>false</availableInTouch>
+    <confirmationTokenRequired>false</confirmationTokenRequired>
+    <description>Designed to auto adjust the inline visualforce page for member pipeline. To use, add this as the override on View on account and replace the &apos;Pipeline_Management&apos; visualforce page on the account page layout with &apos;Pipeline_Management_forOverride&apos; visualforce page</description>
+    <label>AccountViewOverride</label>
+</ApexPage>

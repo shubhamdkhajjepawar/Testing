@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Colleague outside my organization</fullName>
+        <default>false</default>
+        <label>Colleague outside my organization</label>
+    </customValue>
+    <customValue>
+        <fullName>Colleague within my organization</fullName>
+        <default>false</default>
+        <label>Colleague within my organization</label>
+    </customValue>
+    <customValue>
+        <fullName>Conference</fullName>
+        <default>false</default>
+        <label>Conference</label>
+    </customValue>
+    <customValue>
+        <fullName>Print Media</fullName>
+        <default>false</default>
+        <label>Print Media</label>
+    </customValue>
+    <customValue>
+        <fullName>SCCH event</fullName>
+        <default>false</default>
+        <label>SCCH event</label>
+    </customValue>
+    <customValue>
+        <fullName>SCCH staff member/MEA</fullName>
+        <default>false</default>
+        <label>SCCH staff member/MEA</label>
+    </customValue>
+    <customValue>
+        <fullName>Social media</fullName>
+        <default>false</default>
+        <label>Social media</label>
+    </customValue>
+    <customValue>
+        <fullName>Web search</fullName>
+        <default>false</default>
+        <label>Web search</label>
+    </customValue>
+    <customValue>
+        <fullName>Worked at member site in the past</fullName>
+        <default>false</default>
+        <label>Worked at member site in the past</label>
+    </customValue>
+    <customValue>
+        <fullName>Other</fullName>
+        <default>false</default>
+        <label>Other</label>
+    </customValue>
+    <masterLabel>How did you hear about SCCH:</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

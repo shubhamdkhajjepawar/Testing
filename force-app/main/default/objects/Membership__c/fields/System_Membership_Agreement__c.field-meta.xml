@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>System_Membership_Agreement__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>The health system membership that entitles this site to either a group discount on their membership fee or that is paying membership fees on their behalf.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>The health system membership that entitles this site to either a group discount on their membership fee or that is paying membership fees on their behalf.</inlineHelpText>
+    <label>System or Group Membership Agreement</label>
+    <referenceTo>Membership__c</referenceTo>
+    <relationshipName>Membership_Agreements</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

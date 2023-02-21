@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ApexPage xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>38.0</apiVersion>
+    <availableInTouch>true</availableInTouch>
+    <confirmationTokenRequired>false</confirmationTokenRequired>
+    <description>Used only if account view override is active. Use this on account page layout in place of &apos;Pipeline_Management&apos; visualforce page for override. &apos;target&apos; on form and on &apos;Update Status&apos; button are different.</description>
+    <label>Pipeline Management_forOverride</label>
+</ApexPage>

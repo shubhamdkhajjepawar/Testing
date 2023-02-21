@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label></label>
+    <name>Program_Type__c</name>
+    <picklistValues>
+        <masterLabel>Stress first aid (SFA)</masterLabel>
+        <translation></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>The Healing Healthcare Initiative (HHI)</masterLabel>
+        <translation></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>The Schwartz Rounds</masterLabel>
+        <translation></translation>
+    </picklistValues>
+</CustomFieldTranslation>

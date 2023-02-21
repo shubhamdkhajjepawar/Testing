@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Series__c</fullName>
+    <externalId>false</externalId>
+    <label>Series</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Compassion in Action Conference</fullName>
+                <default>false</default>
+                <label>Compassion in Action Conference</label>
+            </value>
+            <value>
+                <fullName>Compassion in Action Webinar</fullName>
+                <default>false</default>
+                <label>Compassion in Action Webinar</label>
+            </value>
+            <value>
+                <fullName>Community_Connections</fullName>
+                <default>false</default>
+                <label>Community Connections</label>
+            </value>
+            <value>
+                <fullName>Member Community Schwartz Rounds</fullName>
+                <default>false</default>
+                <label>Member Community Schwartz Rounds</label>
+            </value>
+            <value>
+                <fullName>Rounds Facilitation Workshop</fullName>
+                <default>false</default>
+                <label>Rounds Facilitation Workshop</label>
+            </value>
+            <value>
+                <fullName>Thought Leadership/Dev</fullName>
+                <default>false</default>
+                <label>Thought Leadership/Dev</label>
+            </value>
+            <value>
+                <fullName>Office Hours Webinar</fullName>
+                <default>false</default>
+                <label>Office Hours Webinar</label>
+            </value>
+            <value>
+                <fullName>HMS Compassion In Practice Course</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>HMS Compassion In Practice Course</label>
+            </value>
+            <value>
+                <fullName>Online Learning Course</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Online Learning Course</label>
+            </value>
+            <value>
+                <fullName>Trauma-Informed Facilitation Skills</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Trauma-Informed Facilitation Skills</label>
+            </value>
+            <value>
+                <fullName>Unit-Based Schwartz Rounds</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Unit-Based Schwartz Rounds</label>
+            </value>
+            <value>
+                <fullName>Virtual Schwartz Rounds</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Virtual Schwartz Rounds</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Role__c</fullName>
+    <externalId>false</externalId>
+    <label>Role</label>
+    <required>true</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Role_Type__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetName>Role</valueSetName>
+        <valueSettings>
+            <controllingFieldValue>Membership Role</controllingFieldValue>
+            <valueName>MO-Agreement Signatory</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Membership Role</controllingFieldValue>
+            <valueName>MO-Legal Contact (If to Member)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Membership Role</controllingFieldValue>
+            <valueName>Organizational Leader</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Membership Role</controllingFieldValue>
+            <valueName>Primary Contact</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Membership Role</controllingFieldValue>
+            <valueName>System Membership Contact</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Membership Role</controllingFieldValue>
+            <valueName>System Contact - Member Communications</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Membership Role</controllingFieldValue>
+            <valueName>System Steering Committee</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Membership Role</controllingFieldValue>
+            <valueName>Schwartz Center System Champion</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Membership Role</controllingFieldValue>
+            <valueName>MO-System Membership Agreement Signatory</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Membership Role</controllingFieldValue>
+            <valueName>MO-System Membership Primary Contact</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Membership Role</controllingFieldValue>
+            <valueName>MO-System Membership Contact</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Program Role</controllingFieldValue>
+            <valueName>SR Program Coordinator</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Program Role</controllingFieldValue>
+            <valueName>SR Facilitator</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Program Role</controllingFieldValue>
+            <valueName>Finance Contact</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Program Role</controllingFieldValue>
+            <valueName>SR Planning Committee</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Program Role</controllingFieldValue>
+            <valueName>SR Physician/Clinical Leader</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Program Role</controllingFieldValue>
+            <valueName>Copy Invoice To</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Program Role</controllingFieldValue>
+            <valueName>PR Contact</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Program Role</controllingFieldValue>
+            <valueName>Facilitator WHO SHALL NOT BE EMAILED, EVER</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Program Role</controllingFieldValue>
+            <valueName>C-Suite/NCCY Contact</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Program Role</controllingFieldValue>
+            <valueName>SFA Clinical Leader</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Program Role</controllingFieldValue>
+            <valueName>SFA Trainer</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Program Role</controllingFieldValue>
+            <valueName>SFA Coordinator</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Program Role</controllingFieldValue>
+            <valueName>SFA Peer Support</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Program Role</controllingFieldValue>
+            <valueName>SFA Project Manager</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Program Role</controllingFieldValue>
+            <valueName>SFA Other</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Program Role</controllingFieldValue>
+            <valueName>UBSR Facilitator</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Program Role</controllingFieldValue>
+            <valueName>UBSR Facilitator 2</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Program Role</controllingFieldValue>
+            <valueName>Continuing Education Contact</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Program Role</controllingFieldValue>
+            <valueName>MEA Primary Contact</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Program Role</controllingFieldValue>
+            <valueName>HHI Executive Sponsor</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Program Role</controllingFieldValue>
+            <valueName>HHI Leadership Team</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Program Role</controllingFieldValue>
+            <valueName>HHI IRB Contact</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Program Role</controllingFieldValue>
+            <valueName>HHI Primary Contact</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Program Role</controllingFieldValue>
+            <valueName>HHI Team Leader</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

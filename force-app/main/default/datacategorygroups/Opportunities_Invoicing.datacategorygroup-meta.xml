@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataCategoryGroup xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <dataCategory>
+        <dataCategory>
+            <label>Opportunity Records</label>
+            <name>Opportunities</name>
+        </dataCategory>
+        <dataCategory>
+            <dataCategory>
+                <label>Waivers</label>
+                <name>Waivers</name>
+            </dataCategory>
+            <label>Invoicing</label>
+            <name>Invoicing</name>
+        </dataCategory>
+        <label>All</label>
+        <name>All</name>
+    </dataCategory>
+    <label>Opportunities &amp; Invoicing</label>
+    <objectUsage>
+        <object>KnowledgeArticleVersion</object>
+    </objectUsage>
+</DataCategoryGroup>

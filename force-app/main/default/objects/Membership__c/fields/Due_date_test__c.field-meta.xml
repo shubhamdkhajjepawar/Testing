@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Due_date_test__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(Payment_Due_Date__c-today()&gt;1,
+&quot;Due in &quot;&amp;text(Payment_Due_Date__c-today())&amp;&quot; Days&quot;,
+if(Payment_Due_Date__c-today()=1,
+&quot;Due in &quot;&amp;text(Payment_Due_Date__c-today())&amp;&quot; Day&quot;,
+if(Payment_Due_Date__c-today()=0,
+&quot;Due Today&quot;,
+if(Payment_Due_Date__c-today()=-1,
+&quot;is &quot;&amp;text((Payment_Due_Date__c-today()))&amp;&quot; Day Past Due&quot;,
+if(Payment_Due_Date__c-today()&lt;-1,
+&quot;is &quot; &amp;text(today()-Payment_Due_Date__c)&amp;&quot; Days Past Due&quot;,
+&quot;&quot;)))))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Due date test</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

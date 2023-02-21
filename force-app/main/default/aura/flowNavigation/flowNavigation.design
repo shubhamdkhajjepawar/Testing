@@ -1,0 +1,6 @@
+<design:component >
+    <design:attribute name="goFinish" label="Label for Finish button" />
+    <design:attribute name="goNext" label="Label for Next Button" />
+    <design:attribute name="goPrevious" label="Label for Previous button" />
+    <design:attribute name="goPause" label="Label for Pause button" />
+</design:component>

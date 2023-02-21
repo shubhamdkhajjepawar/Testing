@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SFA_Included__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>If checked, this member is eligible to add SFA-TTT to their membership without additional charge until October 1, 2023.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>If checked, this member is eligible to add SFA-TTT to their active membership without additional charge until October 1, 2023.</inlineHelpText>
+    <label>SFA-TTT Included</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

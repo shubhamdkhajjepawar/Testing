@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>UBSR_Unit_s__c</fullName>
+    <externalId>false</externalId>
+    <label>UBSR Unit(s)</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Cancer Center / Oncology</fullName>
+                <default>false</default>
+                <label>Cancer Center / Oncology</label>
+            </value>
+            <value>
+                <fullName>Cardiac Care / CICU</fullName>
+                <default>false</default>
+                <label>Cardiac Care / CICU</label>
+            </value>
+            <value>
+                <fullName>Emergency Department</fullName>
+                <default>false</default>
+                <label>Emergency Department</label>
+            </value>
+            <value>
+                <fullName>Hospice</fullName>
+                <default>false</default>
+                <label>Hospice</label>
+            </value>
+            <value>
+                <fullName>Intensive Care Unit (ICU)</fullName>
+                <default>false</default>
+                <label>Intensive Care Unit (ICU)</label>
+            </value>
+            <value>
+                <fullName>Labor and Delivery</fullName>
+                <default>false</default>
+                <label>Labor and Delivery</label>
+            </value>
+            <value>
+                <fullName>Pediatric Intensive Care (PICU)</fullName>
+                <default>false</default>
+                <label>Pediatric Intensive Care (PICU)</label>
+            </value>
+            <value>
+                <fullName>Pediatrics</fullName>
+                <default>false</default>
+                <label>Pediatrics</label>
+            </value>
+            <value>
+                <fullName>Neonatal Intensive Care (NICU)</fullName>
+                <default>false</default>
+                <label>Neonatal Intensive Care (NICU)</label>
+            </value>
+            <value>
+                <fullName>Transplant Unit</fullName>
+                <default>false</default>
+                <label>Transplant Unit</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>10</visibleLines>
+</CustomField>

@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Run_PaymentAmountDue</name>
+        <label>Run PaymentAmountDue</label>
+        <locationX>50</locationX>
+        <locationY>575</locationY>
+        <actionName>dlrs__RollupActionCalculate</actionName>
+        <actionType>apex</actionType>
+        <connector>
+            <targetReference>Run_PaymentAmountPastDue</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>ParentId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>RollupSummaryUniqueName</name>
+            <value>
+                <stringValue>PaymentAmountDue</stringValue>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <actionCalls>
+        <name>Run_PaymentAmountDue2</name>
+        <label>Run PaymentAmountDue</label>
+        <locationX>314</locationX>
+        <locationY>575</locationY>
+        <actionName>dlrs__RollupActionCalculate</actionName>
+        <actionType>apex</actionType>
+        <connector>
+            <targetReference>Run_PaymentAmountPastDue4</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>ParentId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>RollupSummaryUniqueName</name>
+            <value>
+                <stringValue>PaymentAmountDue</stringValue>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <actionCalls>
+        <name>Run_PaymentAmountPastDue</name>
+        <label>Run PaymentAmountPastDue</label>
+        <locationX>50</locationX>
+        <locationY>695</locationY>
+        <actionName>dlrs__RollupActionCalculate</actionName>
+        <actionType>apex</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>ParentId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>RollupSummaryUniqueName</name>
+            <value>
+                <stringValue>PaymentAmountPastDue</stringValue>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <actionCalls>
+        <name>Run_PaymentAmountPastDue4</name>
+        <label>Run PaymentAmountPastDue</label>
+        <locationX>314</locationX>
+        <locationY>695</locationY>
+        <actionName>dlrs__RollupActionCalculate</actionName>
+        <actionType>apex</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>ParentId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>RollupSummaryUniqueName</name>
+            <value>
+                <stringValue>PaymentAmountPastDue</stringValue>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <apiVersion>56.0</apiVersion>
+    <decisions>
+        <name>Overridden_Condition</name>
+        <label>Overridden Condition</label>
+        <locationX>314</locationX>
+        <locationY>335</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Overridden_FALSE</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Renewal_Date_Overridden__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Member_Status__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Former Member</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Calculate_Renewal_Date</targetReference>
+            </connector>
+            <label>Overridden = FALSE</label>
+        </rules>
+        <rules>
+            <name>Overridden_TRUE</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Renewal_Date_Overridden__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Member_Status__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Former Member</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Calculate_Overridden_Renewal_Date</targetReference>
+            </connector>
+            <label>Overridden = TRUE</label>
+        </rules>
+    </decisions>
+    <description>Calculates the renewal date on membership.</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>Formula</name>
+        <dataType>Date</dataType>
+        <expression>IF(
+AND(
+MONTH({!$Record.Renewal_Date__c})=MONTH(TODAY()),
+DAY({!$Record.Membership_Start_Date__c})=DAY(TODAY())
+),
+DATE(YEAR(TODAY())+1,MONTH({!$Record.Membership_Start_Date__c}),DAY({!$Record.Membership_Start_Date__c})),
+IF(
+DATE(YEAR(TODAY()),MONTH({!$Record.Membership_Start_Date__c}),DAY({!$Record.Membership_Start_Date__c}))&gt;
+TODAY(),
+DATE(YEAR(TODAY()),MONTH({!$Record.Membership_Start_Date__c}),DAY({!$Record.Membership_Start_Date__c})),
+IF(
+DATE(YEAR(TODAY()),MONTH({!$Record.Membership_Start_Date__c}),DAY({!$Record.Membership_Start_Date__c}))&lt;
+TODAY(),
+DATE(YEAR(TODAY())+1,MONTH({!$Record.Membership_Start_Date__c}),DAY({!$Record.Membership_Start_Date__c})),
+NULL)))</expression>
+    </formulas>
+    <formulas>
+        <name>Formula2</name>
+        <dataType>Date</dataType>
+        <expression>IF(
+AND(
+MONTH({!$Record.Overridden_Renewal_Date__c})=MONTH(TODAY()),
+DAY({!$Record.Overridden_Renewal_Date__c})=DAY(TODAY())
+),
+DATE(YEAR(TODAY())+1,MONTH({!$Record.Overridden_Renewal_Date__c}),DAY({!$Record.Overridden_Renewal_Date__c})),
+IF(
+DATE(YEAR(TODAY()),MONTH({!$Record.Overridden_Renewal_Date__c}),DAY({!$Record.Overridden_Renewal_Date__c}))&gt;
+TODAY(),
+DATE(YEAR(TODAY()),MONTH({!$Record.Overridden_Renewal_Date__c}),DAY({!$Record.Overridden_Renewal_Date__c})),
+IF(
+DATE(YEAR(TODAY()),MONTH({!$Record.Overridden_Renewal_Date__c}),DAY({!$Record.Overridden_Renewal_Date__c}))&lt;
+TODAY(),
+DATE(YEAR(TODAY())+1,MONTH({!$Record.Overridden_Renewal_Date__c}),DAY({!$Record.Overridden_Renewal_Date__c})),
+NULL)))</expression>
+    </formulas>
+    <interviewLabel>Calculate Renewal Date {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Calculate Renewal Date</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Calculate_Overridden_Renewal_Date</name>
+        <label>Calculate Overridden Renewal Date</label>
+        <locationX>314</locationX>
+        <locationY>455</locationY>
+        <connector>
+            <targetReference>Run_PaymentAmountDue2</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Renewal_Date__c</field>
+            <value>
+                <elementReference>Formula2</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Calculate_Renewal_Date</name>
+        <label>Calculate Renewal Date</label>
+        <locationX>50</locationX>
+        <locationY>455</locationY>
+        <connector>
+            <targetReference>Run_PaymentAmountDue</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Renewal_Date__c</field>
+            <value>
+                <elementReference>Formula</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>188</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Overridden_Condition</targetReference>
+        </connector>
+        <object>Membership__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

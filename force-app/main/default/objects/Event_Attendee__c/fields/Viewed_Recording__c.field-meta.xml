@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Viewed_Recording__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Viewed recorded webinar in a trackable way, e.g., on GoToWebinar. Watching on YouTube is not trackable.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Viewed recorded webinar in a trackable way, e.g., on GoToWebinar. Watching on YouTube is not trackable.</inlineHelpText>
+    <label>Viewed Recording</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

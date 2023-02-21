@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Prospect</fullName>
+    <active>true</active>
+    <label>Prospect</label>
+    <picklistValues>
+        <picklist>Member_Status__c</picklist>
+        <values>
+            <fullName>Active Member</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Active Member - Affiliate</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Active Member - From Transfer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Active Member - Non-Rounds</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Active Member - On Hold</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Active Member - On Hold2</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Active System Member</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Agreement Pending%2FPayment Pending</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Agreement Pending%2FPayment Received</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Agreement Signed%2FPayment Pending</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Former Member</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Former Member - Transferred</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Former Rounds Site</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Former System Member</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Inquired - In Progress</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Inquired - International%2FDeferred</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Inquired - On Hold</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Inquired - Veterinary%2FDeferred</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Inquired - Withdrawn</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Not Applicable</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Prospect - Contact Made</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Prospect - Declined</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Prospect - No Contact Yet</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Removed from Pipeline</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>To Be Determined</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>test</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

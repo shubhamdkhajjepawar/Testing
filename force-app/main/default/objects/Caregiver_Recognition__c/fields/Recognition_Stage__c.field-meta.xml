@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Recognition_Stage__c</fullName>
+    <externalId>false</externalId>
+    <label>Recognition Stage</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Nominee</fullName>
+                <default>false</default>
+                <label>Nominee</label>
+            </value>
+            <value>
+                <fullName>Finalist</fullName>
+                <default>false</default>
+                <label>Finalist</label>
+            </value>
+            <value>
+                <fullName>Awardee</fullName>
+                <default>false</default>
+                <label>Awardee</label>
+            </value>
+            <value>
+                <fullName>Honorable Mention</fullName>
+                <default>false</default>
+                <label>Honorable Mention</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

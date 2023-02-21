@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Program_Type__c</fullName>
+    <externalId>false</externalId>
+    <label>Program Type</label>
+    <required>true</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>The Schwartz Rounds</fullName>
+                <default>false</default>
+                <label>The Schwartz Rounds</label>
+            </value>
+            <value>
+                <fullName>The Healing Healthcare Initiative (HHI)</fullName>
+                <default>false</default>
+                <label>The Healing Healthcare Initiative (HHI)</label>
+            </value>
+            <value>
+                <fullName>Stress first aid (SFA)</fullName>
+                <default>false</default>
+                <label>Stress first aid (SFA)</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

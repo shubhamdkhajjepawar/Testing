@@ -1,0 +1,474 @@
+<apex:page standardController="Account" showHeader="true" sidebar="false">
+
+<!-- START OF CLASSIC FORM. WILL RENDER WHEN USER IS LOGGED IN FROM CLASSIC -->
+    
+    <apex:form rendered="{! $User.UIThemeDisplayed == 'Theme3' }" target="_parent">
+    <apex:pageMessages ></apex:pageMessages>
+      <apex:pageBlock >
+          <apex:pageBlockSection >
+          
+           <!-- START OF LEFT COLUMN - MEMBER STATUS ONLY -->
+              <apex:pageBlockSectionItem rendered="{!OR(Account.Member_Status__c='Active Member',Account.Member_Status__c='Active Member - Affiliate')}">
+                  <apex:outputLabel value="Status" for="member_status"></apex:outputLabel>
+                  <apex:outputText value="{!Account.Member_Status__c}" id="member_status" style="font-weight:800; color:green; font-size:16px"/>
+              </apex:pageBlockSectionItem>
+              
+              <apex:pageBlockSectionItem rendered="{!OR(Account.Member_Status__c='Agreement Signed/Payment Pending',Account.Member_Status__c='Agreement Pending/Payment Received',Account.Member_Status__c='Agreement Pending/Payment Pending',Account.Member_Status__c='Pending - On Hold',Account.Member_Status__c='Pending - Withdrawn')}">
+                  <apex:outputLabel value="Status" for="member_status"></apex:outputLabel>
+                  <apex:outputText value="{!Account.Member_Status__c}" id="member_status" style="font-weight:800;font-size:16px; color:orange"/>
+              </apex:pageBlockSectionItem>
+              
+              <apex:pageBlockSectionItem rendered="{!Account.Member_Status__c='Expired'}">
+                  <apex:outputLabel value="Status" for="member_status"></apex:outputLabel>
+                  <apex:outputText value="{!Account.Member_Status__c}" id="member_status" style="font-weight:800;font-size:16px; color:red"/>
+              </apex:pageBlockSectionItem>
+              
+              <apex:pageBlockSectionItem rendered="{!OR(Account.Member_Status__c='Prospect - Contact Made', Account.Member_Status__c='Prospect - No Contact Yet',Account.Member_Status__c='Prospect - Declined',Account.Member_Status__c='Inquired - In Progress',Account.Member_Status__c='Inquired - On Hold', ISBLANK(Account.Member_Status__c),Account.Member_Status__c='Inquired - Withdrawn',Account.Member_Status__c='Approached - Insufficient Interest',Account.Member_Status__c='Former Rounds Site',Account.Member_Status__c='Health System',Account.Member_Status__c='To Be Determined')}">
+                  <apex:outputLabel value="Status" for="member_status"></apex:outputLabel>
+                  <apex:inputField value="{!Account.Member_Status__c}" id="member_status"/>
+              </apex:pageBlockSectionItem>
+              
+              <apex:pageBlockSectionItem rendered="{!OR(Account.Member_Status__c='Former Member',Account.Member_Status__c='Removed from Pipeline',Account.Member_Status__c='Not Applicable')}">
+                  <apex:outputLabel value="Status" for="member_status"></apex:outputLabel>
+                  <apex:outputText value="{!Account.Member_Status__c}" id="member_status" style="font-weight:800; font-size:16px"/>
+              </apex:pageBlockSectionItem>
+           <!-- END OF LEFT COLUMN - MEMBER STATUS ONLY -->
+              
+           <!-- START OF RIGHT UPPERMOST CELL -->
+              <apex:pageBlockSectionItem rendered="{!OR(Account.Member_Status__c='Active Member',Account.Member_Status__c='Active Member - Affiliate',Account.Member_Status__c='Agreement Signed/Payment Pending')}">
+                  <apex:outputLabel value="Agreement Signed" for="agreement_signed"></apex:outputLabel>
+                  <apex:outputField value="{!Account.Agreement_Signed__c}" id="agreement_signed" />
+              </apex:pageBlockSectionItem>
+              
+              <apex:pageBlockSectionItem rendered="{!or(Account.Member_Status__c='Agreement Pending/Payment Received',Account.Member_Status__c='Agreement Pending/Payment Pending')}">
+                  <apex:outputLabel value="Date Agreement was Sent Out" for="agreement_sent"></apex:outputLabel>
+                  <apex:outputField value="{!Account.Date_Original_Agreement_was_Sent_Out__c}" id="agreement_sent"/>
+              </apex:pageBlockSectionItem>
+              
+              <apex:pageBlockSectionItem rendered="{!OR(Account.Member_Status__c='Prospect - Contact Made', Account.Member_Status__c='Prospect - No Contact Yet',Account.Member_Status__c='Prospect - Declined')}">
+                  <apex:outputLabel value="Prospect Notes" for="prospect_notes"></apex:outputLabel>
+                  <apex:inputField value="{!Account.Prospect_Notes__c}" id="prospect_notes" style="width: 400px; height: 50px"/>
+              </apex:pageBlockSectionItem>
+              
+              <apex:pageBlockSectionItem rendered="{!Account.Member_Status__c='Inquired - In Progress'}" helpText="{!$ObjectType.Account.fields.Inquiry_Notes__c.inlineHelpText}">
+                  <apex:outputLabel value="Inquiry Notes" for="inquiry_notes1"></apex:outputLabel>
+                  <apex:inputField value="{!Account.Inquiry_Notes__c}" id="inquiry_notes1" style="width: 400px; height: 50px"/>
+              </apex:pageBlockSectionItem>
+              
+              <apex:pageBlockSectionItem rendered="{!Account.Member_Status__c='Former Member'}">
+                  <apex:outputLabel value="Membership Start Date" for="memmberstartdate"></apex:outputLabel>
+                  <apex:outputField value="{!Account.Membership_Start_Date__c}" id="memberstartdate" />
+              </apex:pageBlockSectionItem>
+              
+              <apex:pageBlockSectionItem rendered="{!Account.Member_Status__c='Former Rounds Site'}">
+                  <apex:outputLabel value="Stopped Date" for="roundsstop"></apex:outputLabel>
+                  <apex:inputField value="{!Account.Stopped_Date__c}" id="roundsstop" />
+              </apex:pageBlockSectionItem>
+              
+              <apex:pageBlockSectionItem rendered="{!OR(Account.Member_Status__c='Inquired - Withdrawn',Account.Member_Status__c='Pending - Withdrawn')}">
+                  <apex:outputLabel value="Date Withdrawn" for="withdrawaldate"></apex:outputLabel>
+                  <apex:inputField value="{!Account.Date_Withdrawn__c}" id="withdrawaldate"/>
+              </apex:pageBlockSectionItem>
+              
+              <apex:pageBlockSectionItem rendered="{!OR(Account.Member_Status__c='Inquired - On Hold',Account.Member_Status__c='Pending - On Hold')}">
+                  <apex:outputLabel value="Followup Date" for="followupdate"></apex:outputLabel>
+                  <apex:inputField value="{!Account.Followup_Date__c}" id="followupdate" />
+              </apex:pageBlockSectionItem>
+              
+              <apex:pageBlockSectionItem rendered="{!Account.Member_Status__c='Expired'}" ></apex:pageBlockSectionItem>
+           <!-- END OF RIGHT UPPERMOST CELL -->
+              
+           <!-- START OF SECOND LEFT CELL -->
+              <apex:pageBlockSectionItem rendered="{!OR(Account.Member_Status__c='Active Member',Account.Member_Status__c='Active Member - Affiliate')}" dataStyle="text-indent: 275px">
+                  <apex:outputText value="Payment {!Account.Payment_Due_Days__c}" id="paymentdue" style="font-weight: 800"/>
+              </apex:pageBlockSectionItem>
+              
+              <apex:pageBlockSectionItem rendered="{!Account.Member_Status__c='Expired'}" dataStyle="text-indent: 275px">
+                  <apex:outputText value="Membership Expired {!Account.Days_Since_Membership_Expired__c}" id="expired" style="font-weight:800"/>
+              </apex:pageBlockSectionItem>
+              
+              <apex:pageBlockSectionItem rendered="{!OR(Account.Member_Status__c='Inquired - On Hold',Account.Member_Status__c='Pending - On Hold')}">
+                  <apex:outputLabel value="Date Put on Hold" for="holddate"></apex:outputLabel>
+                  <apex:inputField value="{!Account.Date_Put_On_Hold__c}" id="holddate" />
+              </apex:pageBlockSectionItem>
+              
+              <apex:pageBlockSectionItem rendered="{!OR(Account.Member_Status__c='Agreement Signed/Payment Pending',Account.Member_Status__c='Agreement Pending/Payment Pending',Account.Member_Status__c='Former Member',Account.Member_Status__c='Agreement Pending/Payment Received',Account.Member_Status__c='Former Rounds Site',Account.Member_Status__c='Inquired - Withdrawn',Account.Member_Status__c='Pending - Withdrawn')}" ></apex:pageBlockSectionItem>
+           <!-- END OF SECOND LEFT CELL -->
+           
+           <!-- START OF SECOND RIGHT CELL -->
+               <apex:pageBlockSectionItem rendered="{!Account.Member_Status__c='Agreement Signed/Payment Pending'}">
+                  <apex:outputLabel value="Date Agreement was Sent Out" for="agreement_sent"></apex:outputLabel>
+                  <apex:outputField value="{!Account.Date_Original_Agreement_was_Sent_Out__c}" id="agreement_sent"/>
+              </apex:pageBlockSectionItem>
+                 
+              <apex:pageBlockSectionItem rendered="{!OR(Account.Member_Status__c='Active Member',Account.Member_Status__c='Active Member - Affiliate')}">
+                  <apex:outputLabel value="Signed Agreement Received Date" for="received_date"></apex:outputLabel>
+                  <apex:outputField value="{!Account.Signed_Agreement_Received_Date__c}" id="received_date" />
+              </apex:pageBlockSectionItem>
+              
+              <apex:pageBlockSectionItem rendered="{!Account.Member_Status__c='Agreement Pending/Payment Pending'}">
+                  <apex:outputLabel value="Date Invoice Sent" for="invoice"></apex:outputLabel>
+                  <apex:outputField value="{!Account.Date_Invoice_Sent__c}" id="invoice"/>
+              </apex:pageBlockSectionItem>
+              
+              <apex:pageBlockSectionItem rendered="{!Account.Member_Status__c='Former Member'}">
+                  <apex:outputLabel value="Membership End Date" for="memberenddate"></apex:outputLabel>
+                  <apex:outputField value="{!Account.Membership_End_Date__c}" id="memberenddate"/>
+              </apex:pageBlockSectionItem>
+              
+              <apex:pageBlockSectionItem rendered="{!Account.Member_Status__c='Agreement Pending/Payment Received'}">
+                  <apex:outputLabel value="Payment Received Date" for="paymentdate1"></apex:outputLabel>
+                  <apex:outputField value="{!Account.Payment_Received_Date__c}" id="paymentdate1"/>
+              </apex:pageBlockSectionItem>
+              
+              <apex:pageBlockSectionItem rendered="{!Account.Member_Status__c='Former Rounds Site'}">
+                  <apex:outputLabel value="Rounds Start Date" for="roundsstart"></apex:outputLabel>
+                  <apex:outputField value="{!Account.Rounds_Start_Date__c}" id="roundsstart" />
+              </apex:pageBlockSectionItem>
+              
+              <apex:pageBlockSectionItem rendered="{!OR(Account.Member_Status__c='Inquired - Withdrawn',Account.Member_Status__c='Pending - Withdrawn')}" helpText="{!$ObjectType.Account.fields.Reason_for_Withdrawal__c.inlineHelpText}">
+                  <apex:outputLabel value="Reason for Withdrawal" for="withdrawalreason"></apex:outputLabel>
+                  <apex:inputField value="{!Account.Reason_for_Withdrawal__c}" id="withdrawalreason"  />
+              </apex:pageBlockSectionItem>
+              
+              <apex:pageBlockSectionItem rendered="{!OR(Account.Member_Status__c='Inquired - On Hold',Account.Member_Status__c='Pending - On Hold')}">
+                  <apex:outputLabel value="Reminder Date" for="reminderdate"></apex:outputLabel>
+                  <apex:inputField value="{!Account.Reminder_Date__c}" id="reminderdate" />
+              </apex:pageBlockSectionItem>
+           <!-- END OF SECOND RIGHT CELL -->
+           
+           <!-- START OF THIRD LEFT CELL -->   
+              <apex:pageBlockSectionItem rendered="{!OR(Account.Member_Status__c='Active Member',Account.Member_Status__c='Active Member - Affiliate',Account.Member_Status__c='Agreement Pending/Payment Received',Account.Member_Status__c='Agreement Signed/Payment Pending',Account.Member_Status__c='Agreement Pending/Payment Pending',Account.Member_Status__c='Former Member',Account.Member_Status__c='Former Rounds Site',Account.Member_Status__c='Inquired - On Hold',Account.Member_Status__c='Pending - On Hold',Account.Member_Status__c='Pending - Withdrawn',Account.Member_Status__c='Inquired - Withdrawn')}" ></apex:pageBlockSectionItem>
+           <!-- END OF THIRD LEFT CELL -->
+           
+           <!-- START OF THIRD RIGHT CELL -->   
+              <apex:pageBlockSectionItem rendered="{!OR(Account.Member_Status__c='Active Member',Account.Member_Status__c='Active Member - Affiliate')}">
+                  <apex:outputLabel value="Payment Received Date" for="paymentdate2"></apex:outputLabel>
+                  <apex:outputField value="{!Account.Payment_Received_Date__c}" id="paymentdate2"/>
+              </apex:pageBlockSectionItem>
+              
+              <apex:pageBlockSectionItem rendered="{!OR(Account.Member_Status__c='Agreement Pending/Payment Pending')}">
+                  <apex:outputLabel value="Invoice Details" for="invoice_details"></apex:outputLabel>
+                  <apex:outputField value="{!Account.Invoice_Details__c}" id="invoice_details"/>
+              </apex:pageBlockSectionItem>
+              
+              <apex:pageBlockSectionItem rendered="{!Account.Member_Status__c='Former Member'}" helpText="{!$ObjectType.Account.fields.Reason_for_Ending_Membership__c.inlineHelpText}">
+                  <apex:outputLabel value="Reason for Ending Membership" for="endreason"></apex:outputLabel>
+                  <apex:inputField value="{!Account.Reason_for_Ending_Membership__c}" id="endreason" />
+              </apex:pageBlockSectionItem>
+              
+              <apex:pageBlockSectionItem rendered="{!Account.Member_Status__c='Former Rounds Site'}">
+                  <apex:outputLabel value="Reason for Stopping" for="stopreason"></apex:outputLabel>
+                  <apex:inputField value="{!Account.Reason_for_Stopping__c}" id="stopreason" style="width: 400px; height: 50px" />
+              </apex:pageBlockSectionItem>
+              
+              <apex:pageBlockSectionItem rendered="{!OR(Account.Member_Status__c='Inquired - On Hold',Account.Member_Status__c='Pending - On Hold')}">
+                  <apex:outputLabel value="Followup Assigned to:" for="followupuser"></apex:outputLabel>
+                  <apex:inputField value="{!Account.Followup_Assigned_to__c}" id="followupuser" />
+              </apex:pageBlockSectionItem>
+              
+              <apex:pageBlockSectionItem rendered="{!Account.Member_Status__c='Agreement Signed/Payment Pending'}">
+                  <apex:outputLabel value="Signed Agreement Received Date" for="received_date"></apex:outputLabel>
+                  <apex:outputField value="{!Account.Signed_Agreement_Received_Date__c}" id="received_date" />
+              </apex:pageBlockSectionItem>
+              
+              <apex:pageBlockSectionItem rendered="{!OR(Account.Member_Status__c='Inquired - Withdrawn',Account.Member_Status__c='Pending - Withdrawn')}" helpText="{!$ObjectType.Account.fields.Inquiry_Notes__c.inlineHelpText}">
+                  <apex:outputLabel value="Withdrawal Notes" for="withdrawalreason"></apex:outputLabel>
+                  <apex:inputField value="{!Account.Inquiry_Notes__c}" id="withdrawalnotes" style="width: 400px; height: 50px"  />
+              </apex:pageBlockSectionItem>
+           <!-- END OF THIRD RIGHT CELL -->
+           
+           <!-- START OF FOURTH BLANK LEFT CELL --> 
+              <apex:pageBlockSectionItem rendered="{!OR(Account.Member_Status__c='Active Member',Account.Member_Status__c='Active Member - Affiliate',Account.Member_Status__c='Agreement Signed/Payment Pending',Account.Member_Status__c='Former Member',Account.Member_Status__c='Inquired - On Hold',Account.Member_Status__c='Pending - On Hold')}" ></apex:pageBlockSectionItem>
+           <!-- END OF FOURTH BLANK LEFT CELL -->
+           
+           
+           <!-- START OF FOURTH RIGHT CELL -->
+           
+           <apex:pageBlockSectionItem rendered="{!Account.Member_Status__c='Agreement Signed/Payment Pending'}">
+                  <apex:outputLabel value="Date Invoice Sent" for="invoice_2"></apex:outputLabel>
+                  <apex:outputField value="{!Account.Date_Invoice_Sent__c}" id="invoice_2"/>
+              </apex:pageBlockSectionItem>
+              
+              <apex:pageBlockSectionItem rendered="{!Account.Member_Status__c='Former Member'}">
+                  <apex:outputLabel value="Notified by:" for="notified"></apex:outputLabel>
+                  <apex:inputField value="{!Account.Notified_by__c}" id="notified" />
+              </apex:pageBlockSectionItem>
+              
+              <apex:pageBlockSectionItem rendered="{!OR(Account.Member_Status__c='Active Member',Account.Member_Status__c='Active Member - Affiliate')}">
+                  <apex:outputLabel value="Membership Start Date" for="memberstart"></apex:outputLabel>
+                  <apex:outputField value="{!Account.Membership_Start_Date__c}" id="memberstart"/>
+              </apex:pageBlockSectionItem>
+              
+              <apex:pageBlockSectionItem rendered="{!OR(Account.Member_Status__c='Inquired - On Hold',Account.Member_Status__c='Pending - On Hold')}" helpText="{!$ObjectType.Account.fields.Inquiry_Notes__c.inlineHelpText}">
+                  <apex:outputLabel value="On Hold Notes" for="inquiry_notes2"></apex:outputLabel>
+                  <apex:inputField value="{!Account.Inquiry_Notes__c}" id="inquiry_notes2" style="width: 400px; height: 50px"/>
+              </apex:pageBlockSectionItem>
+           <!-- END OF FOURTH RIGHT CELL -->
+              
+           <!-- START OF FIFTH LEFT CELL -->
+           
+              <apex:pageBlockSectionItem rendered="{!OR(Account.Member_Status__c='Agreement Signed/Payment Pending',Account.Member_Status__c='Active Member',Account.Member_Status__c='Active Member - Affiliate',Account.Member_Status__c='Inquired - On Hold',Account.Member_Status__c='Former Member')}" ></apex:pageBlockSectionItem>
+           <!-- END OF FIFTH LEFT CELL -->
+              
+           <!-- START OF FIFTH RIGHT CELL -->
+           
+           <apex:pageBlockSectionItem rendered="{!OR(Account.Member_Status__c='Agreement Signed/Payment Pending')}">
+                  <apex:outputLabel value="Invoice Details" for="invoice_details_2"></apex:outputLabel>
+                  <apex:outputField value="{!Account.Invoice_Details__c}" id="invoice_details_2" style="width: 400px; height: 50px"/>
+              </apex:pageBlockSectionItem>
+              
+              <apex:pageBlockSectionItem rendered="{!Account.Member_Status__c='Former Member'}">
+                  <apex:outputLabel value="Cancellation Notes" for="cancellationnotes"></apex:outputLabel>
+                  <apex:inputField value="{!Account.Inquiry_Notes__c}" id="cancellationnotes" style="width: 400px; height: 50px"/>
+              </apex:pageBlockSectionItem>
+              
+           <!-- END OF FIFTH RIGHT CELL -->
+           
+          </apex:pageBlockSection>
+          <p></p>
+          <apex:outputText value="{!Account.Name}" rendered="false" />
+          <div align="center" draggable="false" >
+              <apex:commandLink value="Update Status" action="{!Save}" styleClass="btn" style="text-decoration:none;padding:4px;" target="_self" rendered="{!OR(Account.Member_Status__c='To Be Determined',Account.Member_Status__c='Prospect - Contact Made',Account.Member_Status__c='Prospect - No Contact Yet',Account.Member_Status__c='Prospect - Declined',ISBLANK(Account.Member_Status__c),Account.Member_Status__c='Inquired - In Progress',Account.Member_Status__c='Inquired - On Hold',Account.Member_Status__c='Inquired - Withdrawn',Account.Member_Status__c='Approached - Insufficient Interest',Account.Member_Status__c='Former Member',Account.Member_Status__c='Former Rounds Site',Account.Member_Status__c='Health System',Account.Member_Status__c='Pending - On Hold',Account.Member_Status__c='Pending - Withdrawn')}" ></apex:commandLink>
+              <apex:commandLink value="Mark as Former Member" action="/flow/Update_Expired_Member_to_Former_Member?varAccountID={!Account.ID}&retURL=/{!Account.ID}" styleClass="btn" style="text-decoration:none;padding:4px;" rendered="{!Account.Member_Status__c='Expired'}" ></apex:commandLink>
+              <apex:commandLink value="Start New Membership" action="/a0F/e?CF00N3600000RUrun={!Account.Name}&CF00N3600000RUrun_lkid={!Account.Id}&retURL=%2F{!Account.Id}%3Finline%3D1" styleClass="btn" style="text-decoration:none;padding:4px;" rendered="{!OR(Account.Member_Status__c='Former Member',Account.Member_Status__c='Inquired - In Progress')}" ></apex:commandLink>
+              <apex:commandLink value="Begin New Inquiry" action="/flow/Update_Former_Member_to_Inquiry?varAccountID={!Account.ID}&retURL=/{!Account.ID}" styleClass="btn" style="text-decoration:none;padding:4px;" rendered="{!OR(Account.Member_Status__c='Expired',Account.Member_Status__c='Former Member',Account.Member_Status__c='Former Rounds Site',Account.Member_Status__c='Prospect - Declined',Account.Member_Status__c='Removed from Pipeline',Account.Member_Status__c='Not Applicable',Account.Member_Status__c='Pending - Withdrawn')}" ></apex:commandLink>
+          </div>
+      </apex:pageBlock>
+  </apex:form>
+    
+    
+<!-- START OF LIGHTNING EXPERIENCE FORM. WILL RENDER WHEN USER IS LOGGED IN FROM LIGHTNING EXPERIENCE -->
+    
+    <apex:form rendered="{!$User.UIThemeDisplayed == 'Theme4d'}">
+    <apex:pageMessages ></apex:pageMessages>
+      <apex:pageBlock >
+          <apex:pageBlockSection >
+          
+           <!-- START OF LEFT COLUMN - MEMBER STATUS ONLY -->
+              <apex:pageBlockSectionItem rendered="{!OR(Account.Member_Status__c='Active Member',Account.Member_Status__c='Active Member - Affiliate')}">
+                  <apex:outputLabel value="Status" for="member_status"></apex:outputLabel>
+                  <apex:outputText value="{!Account.Member_Status__c}" id="member_status" style="font-weight:800; color:green; font-size:16px"/>
+              </apex:pageBlockSectionItem>
+              
+              <apex:pageBlockSectionItem rendered="{!OR(Account.Member_Status__c='Agreement Signed/Payment Pending',Account.Member_Status__c='Agreement Pending/Payment Received',Account.Member_Status__c='Agreement Pending/Payment Pending',Account.Member_Status__c='Pending - On Hold',Account.Member_Status__c='Pending - Withdrawn')}">
+                  <apex:outputLabel value="Status" for="member_status"></apex:outputLabel>
+                  <apex:outputText value="{!Account.Member_Status__c}" id="member_status" style="font-weight:800;font-size:16px; color:orange"/>
+              </apex:pageBlockSectionItem>
+              
+              <apex:pageBlockSectionItem rendered="{!Account.Member_Status__c='Expired'}">
+                  <apex:outputLabel value="Status" for="member_status"></apex:outputLabel>
+                  <apex:outputText value="{!Account.Member_Status__c}" id="member_status" style="font-weight:800;font-size:16px; color:red"/>
+              </apex:pageBlockSectionItem>
+              
+              <apex:pageBlockSectionItem rendered="{!OR(Account.Member_Status__c='Prospect - Contact Made', Account.Member_Status__c='Prospect - No Contact Yet',Account.Member_Status__c='Prospect - Declined',Account.Member_Status__c='Inquired - In Progress',Account.Member_Status__c='Inquired - On Hold', ISBLANK(Account.Member_Status__c),Account.Member_Status__c='Inquired - Withdrawn',Account.Member_Status__c='Approached - Insufficient Interest',Account.Member_Status__c='Former Rounds Site',Account.Member_Status__c='Health System',Account.Member_Status__c='To Be Determined')}">
+                  <apex:outputLabel value="Status" for="member_status"></apex:outputLabel>
+                  <apex:inputField value="{!Account.Member_Status__c}" id="member_status"/>
+              </apex:pageBlockSectionItem>
+              
+              <apex:pageBlockSectionItem rendered="{!OR(Account.Member_Status__c='Former Member',Account.Member_Status__c='Removed from Pipeline',Account.Member_Status__c='Not Applicable')}">
+                  <apex:outputLabel value="Status" for="member_status"></apex:outputLabel>
+                  <apex:outputText value="{!Account.Member_Status__c}" id="member_status" style="font-weight:800; font-size:16px"/>
+              </apex:pageBlockSectionItem>
+           <!-- END OF LEFT COLUMN - MEMBER STATUS ONLY -->
+              
+           <!-- START OF RIGHT UPPERMOST CELL -->
+              <apex:pageBlockSectionItem rendered="{!OR(Account.Member_Status__c='Active Member',Account.Member_Status__c='Active Member - Affiliate',Account.Member_Status__c='Agreement Signed/Payment Pending')}">
+                  <apex:outputLabel value="Agreement Signed" for="agreement_signed"></apex:outputLabel>
+                  <apex:outputField value="{!Account.Agreement_Signed__c}" id="agreement_signed" />
+              </apex:pageBlockSectionItem>
+              
+              <apex:pageBlockSectionItem rendered="{!or(Account.Member_Status__c='Agreement Pending/Payment Received',Account.Member_Status__c='Agreement Pending/Payment Pending')}">
+                  <apex:outputLabel value="Date Agreement was Sent Out" for="agreement_sent"></apex:outputLabel>
+                  <apex:outputField value="{!Account.Date_Original_Agreement_was_Sent_Out__c}" id="agreement_sent"/>
+              </apex:pageBlockSectionItem>
+              
+              <apex:pageBlockSectionItem rendered="{!OR(Account.Member_Status__c='Prospect - Contact Made', Account.Member_Status__c='Prospect - No Contact Yet',Account.Member_Status__c='Prospect - Declined')}">
+                  <apex:outputLabel value="Prospect Notes" for="prospect_notes"></apex:outputLabel>
+                  <apex:inputField value="{!Account.Prospect_Notes__c}" id="prospect_notes" style="width: 400px; height: 50px"/>
+              </apex:pageBlockSectionItem>
+              
+              <apex:pageBlockSectionItem rendered="{!Account.Member_Status__c='Inquired - In Progress'}" helpText="{!$ObjectType.Account.fields.Inquiry_Notes__c.inlineHelpText}">
+                  <apex:outputLabel value="Inquiry Notes" for="inquiry_notes1"></apex:outputLabel>
+                  <apex:inputField value="{!Account.Inquiry_Notes__c}" id="inquiry_notes1" style="width: 400px; height: 50px"/>
+              </apex:pageBlockSectionItem>
+              
+              <apex:pageBlockSectionItem rendered="{!Account.Member_Status__c='Former Member'}">
+                  <apex:outputLabel value="Membership Start Date" for="memmberstartdate"></apex:outputLabel>
+                  <apex:outputField value="{!Account.Membership_Start_Date__c}" id="memberstartdate" />
+              </apex:pageBlockSectionItem>
+              
+              <apex:pageBlockSectionItem rendered="{!Account.Member_Status__c='Former Rounds Site'}">
+                  <apex:outputLabel value="Stopped Date" for="roundsstop"></apex:outputLabel>
+                  <apex:inputField value="{!Account.Stopped_Date__c}" id="roundsstop" />
+              </apex:pageBlockSectionItem>
+              
+              <apex:pageBlockSectionItem rendered="{!OR(Account.Member_Status__c='Inquired - Withdrawn',Account.Member_Status__c='Pending - Withdrawn')}">
+                  <apex:outputLabel value="Date Withdrawn" for="withdrawaldate"></apex:outputLabel>
+                  <apex:inputField value="{!Account.Date_Withdrawn__c}" id="withdrawaldate"/>
+              </apex:pageBlockSectionItem>
+              
+              <apex:pageBlockSectionItem rendered="{!OR(Account.Member_Status__c='Inquired - On Hold',Account.Member_Status__c='Pending - On Hold')}">
+                  <apex:outputLabel value="Followup Date" for="followupdate"></apex:outputLabel>
+                  <apex:inputField value="{!Account.Followup_Date__c}" id="followupdate" />
+              </apex:pageBlockSectionItem>
+              
+              <apex:pageBlockSectionItem rendered="{!Account.Member_Status__c='Expired'}" ></apex:pageBlockSectionItem>
+           <!-- END OF RIGHT UPPERMOST CELL -->
+              
+           <!-- START OF SECOND LEFT CELL -->
+              <apex:pageBlockSectionItem rendered="{!OR(Account.Member_Status__c='Active Member',Account.Member_Status__c='Active Member - Affiliate')}" dataStyle="text-indent: 275px">
+                  <apex:outputText value="Payment {!Account.Payment_Due_Days__c}" id="paymentdue" style="font-weight: 800"/>
+              </apex:pageBlockSectionItem>
+              
+              <apex:pageBlockSectionItem rendered="{!Account.Member_Status__c='Expired'}" dataStyle="text-indent: 275px">
+                  <apex:outputText value="Membership Expired {!Account.Days_Since_Membership_Expired__c}" id="expired" style="font-weight:800"/>
+              </apex:pageBlockSectionItem>
+              
+              <apex:pageBlockSectionItem rendered="{!OR(Account.Member_Status__c='Inquired - On Hold',Account.Member_Status__c='Pending - On Hold')}">
+                  <apex:outputLabel value="Date Put on Hold" for="holddate"></apex:outputLabel>
+                  <apex:inputField value="{!Account.Date_Put_On_Hold__c}" id="holddate" />
+              </apex:pageBlockSectionItem>
+              
+              <apex:pageBlockSectionItem rendered="{!OR(Account.Member_Status__c='Agreement Signed/Payment Pending',Account.Member_Status__c='Agreement Pending/Payment Pending',Account.Member_Status__c='Former Member',Account.Member_Status__c='Agreement Pending/Payment Received',Account.Member_Status__c='Former Rounds Site',Account.Member_Status__c='Inquired - Withdrawn',Account.Member_Status__c='Pending - Withdrawn')}" ></apex:pageBlockSectionItem>
+           <!-- END OF SECOND LEFT CELL -->
+           
+           <!-- START OF SECOND RIGHT CELL -->
+               <apex:pageBlockSectionItem rendered="{!Account.Member_Status__c='Agreement Signed/Payment Pending'}">
+                  <apex:outputLabel value="Date Agreement was Sent Out" for="agreement_sent"></apex:outputLabel>
+                  <apex:outputField value="{!Account.Date_Original_Agreement_was_Sent_Out__c}" id="agreement_sent"/>
+              </apex:pageBlockSectionItem>
+                 
+              <apex:pageBlockSectionItem rendered="{!OR(Account.Member_Status__c='Active Member',Account.Member_Status__c='Active Member - Affiliate')}">
+                  <apex:outputLabel value="Signed Agreement Received Date" for="received_date"></apex:outputLabel>
+                  <apex:outputField value="{!Account.Signed_Agreement_Received_Date__c}" id="received_date" />
+              </apex:pageBlockSectionItem>
+              
+              <apex:pageBlockSectionItem rendered="{!Account.Member_Status__c='Agreement Pending/Payment Pending'}">
+                  <apex:outputLabel value="Date Invoice Sent" for="invoice"></apex:outputLabel>
+                  <apex:outputField value="{!Account.Date_Invoice_Sent__c}" id="invoice"/>
+              </apex:pageBlockSectionItem>
+              
+              <apex:pageBlockSectionItem rendered="{!Account.Member_Status__c='Former Member'}">
+                  <apex:outputLabel value="Membership End Date" for="memberenddate"></apex:outputLabel>
+                  <apex:outputField value="{!Account.Membership_End_Date__c}" id="memberenddate"/>
+              </apex:pageBlockSectionItem>
+              
+              <apex:pageBlockSectionItem rendered="{!Account.Member_Status__c='Agreement Pending/Payment Received'}">
+                  <apex:outputLabel value="Payment Received Date" for="paymentdate1"></apex:outputLabel>
+                  <apex:outputField value="{!Account.Payment_Received_Date__c}" id="paymentdate1"/>
+              </apex:pageBlockSectionItem>
+              
+              <apex:pageBlockSectionItem rendered="{!Account.Member_Status__c='Former Rounds Site'}">
+                  <apex:outputLabel value="Rounds Start Date" for="roundsstart"></apex:outputLabel>
+                  <apex:outputField value="{!Account.Rounds_Start_Date__c}" id="roundsstart" />
+              </apex:pageBlockSectionItem>
+              
+              <apex:pageBlockSectionItem rendered="{!OR(Account.Member_Status__c='Inquired - Withdrawn',Account.Member_Status__c='Pending - Withdrawn')}" helpText="{!$ObjectType.Account.fields.Reason_for_Withdrawal__c.inlineHelpText}">
+                  <apex:outputLabel value="Reason for Withdrawal" for="withdrawalreason"></apex:outputLabel>
+                  <apex:inputField value="{!Account.Reason_for_Withdrawal__c}" id="withdrawalreason"  />
+              </apex:pageBlockSectionItem>
+              
+              <apex:pageBlockSectionItem rendered="{!OR(Account.Member_Status__c='Inquired - On Hold',Account.Member_Status__c='Pending - On Hold')}">
+                  <apex:outputLabel value="Reminder Date" for="reminderdate"></apex:outputLabel>
+                  <apex:inputField value="{!Account.Reminder_Date__c}" id="reminderdate" />
+              </apex:pageBlockSectionItem>
+           <!-- END OF SECOND RIGHT CELL -->
+           
+           <!-- START OF THIRD LEFT CELL -->   
+              <apex:pageBlockSectionItem rendered="{!OR(Account.Member_Status__c='Active Member',Account.Member_Status__c='Active Member - Affiliate',Account.Member_Status__c='Agreement Pending/Payment Received',Account.Member_Status__c='Agreement Signed/Payment Pending',Account.Member_Status__c='Agreement Pending/Payment Pending',Account.Member_Status__c='Former Member',Account.Member_Status__c='Former Rounds Site',Account.Member_Status__c='Inquired - On Hold',Account.Member_Status__c='Pending - On Hold',Account.Member_Status__c='Pending - Withdrawn',Account.Member_Status__c='Inquired - Withdrawn')}" ></apex:pageBlockSectionItem>
+           <!-- END OF THIRD LEFT CELL -->
+           
+           <!-- START OF THIRD RIGHT CELL -->   
+              <apex:pageBlockSectionItem rendered="{!OR(Account.Member_Status__c='Active Member',Account.Member_Status__c='Active Member - Affiliate')}">
+                  <apex:outputLabel value="Payment Received Date" for="paymentdate2"></apex:outputLabel>
+                  <apex:outputField value="{!Account.Payment_Received_Date__c}" id="paymentdate2"/>
+              </apex:pageBlockSectionItem>
+              
+              <apex:pageBlockSectionItem rendered="{!OR(Account.Member_Status__c='Agreement Pending/Payment Pending')}">
+                  <apex:outputLabel value="Invoice Details" for="invoice_details"></apex:outputLabel>
+                  <apex:outputField value="{!Account.Invoice_Details__c}" id="invoice_details"/>
+              </apex:pageBlockSectionItem>
+              
+              <apex:pageBlockSectionItem rendered="{!Account.Member_Status__c='Former Member'}" helpText="{!$ObjectType.Account.fields.Reason_for_Withdrawal__c.inlineHelpText}">
+                  <apex:outputLabel value="Reason for Ending Membership" for="endreason"></apex:outputLabel>
+                  <apex:inputField value="{!Account.Reason_for_Ending_Membership__c}" id="endreason" />
+              </apex:pageBlockSectionItem>
+              
+              <apex:pageBlockSectionItem rendered="{!Account.Member_Status__c='Former Rounds Site'}">
+                  <apex:outputLabel value="Reason for Stopping" for="stopreason"></apex:outputLabel>
+                  <apex:inputField value="{!Account.Reason_for_Stopping__c}" id="stopreason" style="width: 400px; height: 50px" />
+              </apex:pageBlockSectionItem>
+              
+              <apex:pageBlockSectionItem rendered="{!OR(Account.Member_Status__c='Inquired - On Hold',Account.Member_Status__c='Pending - On Hold')}">
+                  <apex:outputLabel value="Followup Assigned to:" for="followupuser"></apex:outputLabel>
+                  <apex:inputField value="{!Account.Followup_Assigned_to__c}" id="followupuser" />
+              </apex:pageBlockSectionItem>
+              
+              <apex:pageBlockSectionItem rendered="{!Account.Member_Status__c='Agreement Signed/Payment Pending'}">
+                  <apex:outputLabel value="Signed Agreement Received Date" for="received_date"></apex:outputLabel>
+                  <apex:outputField value="{!Account.Signed_Agreement_Received_Date__c}" id="received_date" />
+              </apex:pageBlockSectionItem>
+              
+              <apex:pageBlockSectionItem rendered="{!OR(Account.Member_Status__c='Inquired - Withdrawn',Account.Member_Status__c='Pending - Withdrawn')}" helpText="{!$ObjectType.Account.fields.Inquiry_Notes__c.inlineHelpText}">
+                  <apex:outputLabel value="Withdrawal Notes" for="withdrawalreason"></apex:outputLabel>
+                  <apex:inputField value="{!Account.Inquiry_Notes__c}" id="withdrawalnotes" style="width: 400px; height: 50px"  />
+              </apex:pageBlockSectionItem>
+           <!-- END OF THIRD RIGHT CELL -->
+           
+           <!-- START OF FOURTH BLANK LEFT CELL --> 
+              <apex:pageBlockSectionItem rendered="{!OR(Account.Member_Status__c='Active Member',Account.Member_Status__c='Active Member - Affiliate',Account.Member_Status__c='Agreement Signed/Payment Pending',Account.Member_Status__c='Former Member',Account.Member_Status__c='Inquired - On Hold',Account.Member_Status__c='Pending - On Hold')}" ></apex:pageBlockSectionItem>
+           <!-- END OF FOURTH BLANK LEFT CELL -->
+           
+           
+           <!-- START OF FOURTH RIGHT CELL -->
+           
+           <apex:pageBlockSectionItem rendered="{!Account.Member_Status__c='Agreement Signed/Payment Pending'}">
+                  <apex:outputLabel value="Date Invoice Sent" for="invoice_2"></apex:outputLabel>
+                  <apex:outputField value="{!Account.Date_Invoice_Sent__c}" id="invoice_2"/>
+              </apex:pageBlockSectionItem>
+              
+              <apex:pageBlockSectionItem rendered="{!Account.Member_Status__c='Former Member'}">
+                  <apex:outputLabel value="Notified by:" for="notified"></apex:outputLabel>
+                  <apex:inputField value="{!Account.Notified_by__c}" id="notified" />
+              </apex:pageBlockSectionItem>
+              
+              <apex:pageBlockSectionItem rendered="{!OR(Account.Member_Status__c='Active Member',Account.Member_Status__c='Active Member - Affiliate')}">
+                  <apex:outputLabel value="Membership Start Date" for="memberstart"></apex:outputLabel>
+                  <apex:outputField value="{!Account.Membership_Start_Date__c}" id="memberstart"/>
+              </apex:pageBlockSectionItem>
+              
+              <apex:pageBlockSectionItem rendered="{!OR(Account.Member_Status__c='Inquired - On Hold',Account.Member_Status__c='Pending - On Hold')}" helpText="{!$ObjectType.Account.fields.Inquiry_Notes__c.inlineHelpText}">
+                  <apex:outputLabel value="On Hold Notes" for="inquiry_notes2"></apex:outputLabel>
+                  <apex:inputField value="{!Account.Inquiry_Notes__c}" id="inquiry_notes2" />
+              </apex:pageBlockSectionItem>
+           <!-- END OF FOURTH RIGHT CELL -->
+              
+           <!-- START OF FIFTH LEFT CELL -->
+           
+              <apex:pageBlockSectionItem rendered="{!OR(Account.Member_Status__c='Agreement Signed/Payment Pending',Account.Member_Status__c='Active Member',Account.Member_Status__c='Active Member - Affiliate',Account.Member_Status__c='Inquired - On Hold',Account.Member_Status__c='Former Member')}" ></apex:pageBlockSectionItem>
+           <!-- END OF FIFTH LEFT CELL -->
+              
+           <!-- START OF FIFTH RIGHT CELL -->
+           
+               <apex:pageBlockSectionItem rendered="{!OR(Account.Member_Status__c='Agreement Signed/Payment Pending')}">
+                  <apex:outputLabel value="Invoice Details" for="invoice_details_2"></apex:outputLabel>
+                  <apex:outputField value="{!Account.Invoice_Details__c}" id="invoice_details_2" style="width: 400px; height: 50px"/>
+              </apex:pageBlockSectionItem>
+              
+              <apex:pageBlockSectionItem rendered="{!Account.Member_Status__c='Former Member'}">
+                  <apex:outputLabel value="Cancellation Notes" for="cancellationnotes"></apex:outputLabel>
+                  <apex:inputField value="{!Account.Inquiry_Notes__c}" id="cancellationnotes" style="width: 400px; height: 50px"/>
+              </apex:pageBlockSectionItem>
+              
+           <!-- END OF FIFTH RIGHT CELL -->
+           
+          </apex:pageBlockSection>
+          <p></p>
+          <div align="center" draggable="false" >
+            <apex:commandLink value="Update Status" action="{!Save}" styleClass="btn" style="text-decoration:none;padding:4px;" target="_self" rendered="{!OR(Account.Member_Status__c='Prospect - Contact Made',Account.Member_Status__c='Prospect - Contact Not Made Yet',ISBLANK(Account.Member_Status__c),Account.Member_Status__c='Inquired - In Progress',Account.Member_Status__c='Inquired - On Hold',Account.Member_Status__c='Inquired - Withdrawn',Account.Member_Status__c='Approached - Insufficient Interest',Account.Member_Status__c='Former Member',Account.Member_Status__c='Former Rounds Site',Account.Member_Status__c='Health System')}" ></apex:commandLink> 
+          </div>
+      </apex:pageBlock>
+  </apex:form>
+    
+</apex:page>

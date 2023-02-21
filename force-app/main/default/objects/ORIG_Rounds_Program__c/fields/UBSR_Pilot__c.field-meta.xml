@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>UBSR_Pilot__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>If checked, this member participated in the 2018 UBSR pilot program.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>If checked, this member participated in the 2018 UBSR pilot program.</inlineHelpText>
+    <label>UBSR Pilot</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

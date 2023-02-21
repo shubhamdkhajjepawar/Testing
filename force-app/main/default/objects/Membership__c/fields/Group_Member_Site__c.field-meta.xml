@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Group_Member_Site__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This site is a member of a health system that has X other sites as members, so each receives a discount on their membership fees.They each have individual agreements and separate invoicing.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>This site is a member of a health system that has X other sites as members, so each receives a discount on their membership fees.They each have individual agreements and separate invoicing.</inlineHelpText>
+    <label>Invoice Individual Site</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

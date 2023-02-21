@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Fees_covered_by_GNYHA_after_1_1_23__c</fullName>
+    <defaultValue>false</defaultValue>
+    <externalId>false</externalId>
+    <inlineHelpText>If checked, GNYHA has agreed to continue covering SCCH fees for this member beyond Jan 1, 2023. See Opportunity list to see GNYHA coverage in previous years.</inlineHelpText>
+    <label>Fees covered by GNYHA after 1/1/23?</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

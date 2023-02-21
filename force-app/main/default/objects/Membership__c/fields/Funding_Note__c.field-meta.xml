@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Funding_Note__c</fullName>
+    <description>Any information re the source of their funding for Schwartz Center membership or program fees, e.g., HR department, chaplaincy department, private donor, grant, etc.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Any information re the source of their funding for Schwartz Center membership or program fees, e.g., HR department, chaplaincy department, private donor, grant, etc.</inlineHelpText>
+    <label>Budget/Funding Note</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>TextArea</type>
+</CustomField>

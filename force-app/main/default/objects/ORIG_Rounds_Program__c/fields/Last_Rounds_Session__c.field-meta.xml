@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Last_Rounds_Session__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>The most recent Rounds session for which we have received an evaluation. Data is auto-populated from the Rounds session object. If blank, see the Last Evaluation field.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>The most recent Rounds session for which we have received an evaluation. Data is auto-populated from the Rounds session object. If blank, see the Last Evaluation field.</inlineHelpText>
+    <label>RP Last Rounds Session</label>
+    <referenceTo>Account</referenceTo>
+    <relationshipName>TEST_Rounds_Programs1</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

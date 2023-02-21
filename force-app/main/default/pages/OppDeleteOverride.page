@@ -1,0 +1,20 @@
+<apex:page standardController="Opportunity" 
+            action="{!IF(Opportunity.StageName != 'Paid',
+                    URLFOR($Action.Opportunity.Delete,Opportunity.Id,
+                        [retURL=Opportunity.Membership__r.ID,
+                        saveURL=Opportunity.Membership__r.ID],true),
+                        NULL)}">
+    <apex:outputPanel >
+        <br></br>
+        <br></br>
+        <font size="4"><b>This opportunity has been paid. You cannot delete a paid opportunity.</b></font>
+        <br></br>
+        <br></br>
+    </apex:outputPanel>
+    
+    <apex:outputPanel rendered="false">
+        <apex:outputField value="{!Opportunity.Membership__r.ID}" />
+        <apex:outputField value="{!Opportunity.StageName}" />
+    </apex:outputPanel>    
+  
+</apex:page>

@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Active Member</fullName>
+        <default>false</default>
+        <label>Active Member</label>
+    </customValue>
+    <customValue>
+        <fullName>Active Member - Affiliate</fullName>
+        <default>false</default>
+        <label>Active Member - Affiliate</label>
+    </customValue>
+    <customValue>
+        <fullName>Active Member - On Hold</fullName>
+        <default>false</default>
+        <label>Active Member - On Hold</label>
+    </customValue>
+    <customValue>
+        <fullName>Active Member - From Transfer</fullName>
+        <default>false</default>
+        <label>Active Member - From Transfer</label>
+    </customValue>
+    <customValue>
+        <fullName>Active Member - Non-Rounds</fullName>
+        <default>false</default>
+        <label>Active Member - Non-Rounds</label>
+    </customValue>
+    <customValue>
+        <fullName>Active System Member</fullName>
+        <default>false</default>
+        <label>Active System Member</label>
+    </customValue>
+    <customValue>
+        <fullName>Agreement Pending/Payment Pending</fullName>
+        <default>false</default>
+        <label>Agreement Pending/Payment Pending</label>
+    </customValue>
+    <customValue>
+        <fullName>Agreement Pending/Payment Received</fullName>
+        <default>false</default>
+        <label>Agreement Pending/Payment Received</label>
+    </customValue>
+    <customValue>
+        <fullName>Agreement Signed/Payment Pending</fullName>
+        <default>false</default>
+        <label>Agreement Signed/Payment Pending</label>
+    </customValue>
+    <customValue>
+        <fullName>Inquired - In Progress</fullName>
+        <default>false</default>
+        <label>Inquired - In Progress</label>
+    </customValue>
+    <customValue>
+        <fullName>Inquired - System Membership</fullName>
+        <default>false</default>
+        <label>Inquired - System Membership</label>
+    </customValue>
+    <customValue>
+        <fullName>Inquired - On Hold</fullName>
+        <default>false</default>
+        <label>Inquired - On Hold</label>
+    </customValue>
+    <customValue>
+        <fullName>Inquired - Withdrawn</fullName>
+        <default>false</default>
+        <label>Inquired - Withdrawn</label>
+    </customValue>
+    <customValue>
+        <fullName>Prospect - Contact Made</fullName>
+        <default>false</default>
+        <label>Prospect - Contact Made</label>
+    </customValue>
+    <customValue>
+        <fullName>Prospect - No Contact Yet</fullName>
+        <default>false</default>
+        <label>Prospect - No Contact Yet</label>
+    </customValue>
+    <customValue>
+        <fullName>Prospect - Declined</fullName>
+        <default>false</default>
+        <label>Prospect - Declined</label>
+    </customValue>
+    <customValue>
+        <fullName>Former Member</fullName>
+        <default>false</default>
+        <label>Former Member</label>
+    </customValue>
+    <customValue>
+        <fullName>Former Member - Transferred</fullName>
+        <default>false</default>
+        <label>Former Member - Transferred</label>
+    </customValue>
+    <customValue>
+        <fullName>Former System Member</fullName>
+        <default>false</default>
+        <label>Former System Member</label>
+    </customValue>
+    <customValue>
+        <fullName>Former Rounds Site</fullName>
+        <default>false</default>
+        <label>Former Rounds Site</label>
+    </customValue>
+    <customValue>
+        <fullName>Removed from Pipeline</fullName>
+        <default>false</default>
+        <label>Removed from Pipeline</label>
+    </customValue>
+    <customValue>
+        <fullName>To Be Determined</fullName>
+        <default>false</default>
+        <label>To Be Determined</label>
+    </customValue>
+    <customValue>
+        <fullName>Not Applicable</fullName>
+        <default>false</default>
+        <label>Not Applicable</label>
+    </customValue>
+    <customValue>
+        <fullName>Pending - On Hold</fullName>
+        <default>false</default>
+        <label>Pending - On Hold</label>
+    </customValue>
+    <customValue>
+        <fullName>Pending - Withdrawn</fullName>
+        <default>false</default>
+        <label>Pending - Withdrawn</label>
+    </customValue>
+    <customValue>
+        <fullName>Inquired - International/Deferred</fullName>
+        <default>false</default>
+        <label>Inquired - International/Deferred</label>
+    </customValue>
+    <customValue>
+        <fullName>Inquired - Veterinary/Deferred</fullName>
+        <default>false</default>
+        <label>Inquired - Veterinary/Deferred</label>
+    </customValue>
+    <customValue>
+        <fullName>test</fullName>
+        <default>false</default>
+        <label>test</label>
+    </customValue>
+    <customValue>
+        <fullName>Active Member - On Hold2</fullName>
+        <default>false</default>
+        <label>Active Member - On Hold2</label>
+    </customValue>
+    <customValue>
+        <fullName>Prospect - Contact Not Made Yet</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Prospect - Contact Not Made Yet</label>
+    </customValue>
+    <customValue>
+        <fullName>Inquired/In Progress</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Inquired/In Progress</label>
+    </customValue>
+    <customValue>
+        <fullName>Withdrawn</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Withdrawn</label>
+    </customValue>
+    <customValue>
+        <fullName>Agreement Out for Signature/Waiting for Payment</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Agreement Out for Signature/Waiting for Payment</label>
+    </customValue>
+    <customValue>
+        <fullName>Agreement Out for Signature/Payment Received</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Agreement Out for Signature/Payment Received</label>
+    </customValue>
+    <customValue>
+        <fullName>Agreement Signed/Waiting for Payment</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Agreement Signed/Waiting for Payment</label>
+    </customValue>
+    <customValue>
+        <fullName>Former Rounds Site (stopped prior to membership model)</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Former Rounds Site (stopped prior to membership model)</label>
+    </customValue>
+    <customValue>
+        <fullName>Health System or N/A</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Health System or N/A</label>
+    </customValue>
+    <customValue>
+        <fullName>Expired</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Expired</label>
+    </customValue>
+    <customValue>
+        <fullName>Inquired/On Hold</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Inquired/On Hold</label>
+    </customValue>
+    <masterLabel>Member Status</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

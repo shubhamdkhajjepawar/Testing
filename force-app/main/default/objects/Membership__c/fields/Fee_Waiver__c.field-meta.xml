@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Fee_Waiver__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Perennial fee waiver: this member will never be charged a membership fee. 
+Sponsored fee: a third party made a donation to us to cover this member&apos;s fee (see Development). Sponsored fees are not included in Membership&apos;s reporting of fee waivers.</inlineHelpText>
+    <label>Fee Waiver/Sponsorship</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>FY22 COVID Fee Waiver</fullName>
+                <default>false</default>
+                <label>FY22 COVID Fee Waiver</label>
+            </value>
+            <value>
+                <fullName>FY22 Special Fee Waiver</fullName>
+                <default>false</default>
+                <label>FY22 Special Fee Waiver</label>
+            </value>
+            <value>
+                <fullName>FY22 Sponsored Membership Fee</fullName>
+                <default>false</default>
+                <label>FY22 Sponsored Membership Fee</label>
+            </value>
+            <value>
+                <fullName>FY21 COVID Fee Waiver</fullName>
+                <default>false</default>
+                <label>FY21 COVID Fee Waiver</label>
+            </value>
+            <value>
+                <fullName>FY21 Special Fee Waiver</fullName>
+                <default>false</default>
+                <label>FY21 Special Fee Waiver</label>
+            </value>
+            <value>
+                <fullName>FY21 Sponsored Membership Fee</fullName>
+                <default>false</default>
+                <label>FY21 Sponsored Membership Fee</label>
+            </value>
+            <value>
+                <fullName>Perennial Fee Waiver</fullName>
+                <default>false</default>
+                <label>Perennial Fee Waiver</label>
+            </value>
+            <value>
+                <fullName>FY20 COVID Fee Waiver</fullName>
+                <default>false</default>
+                <label>FY20 COVID Fee Waiver</label>
+            </value>
+            <value>
+                <fullName>FY20 Special Fee Waiver</fullName>
+                <default>false</default>
+                <label>FY20 Special Fee Waiver</label>
+            </value>
+            <value>
+                <fullName>FY20 Sponsored Membership Fee</fullName>
+                <default>false</default>
+                <label>FY20 Sponsored Membership Fee</label>
+            </value>
+            <value>
+                <fullName>FY19 Initiation Fee Waiver</fullName>
+                <default>false</default>
+                <label>FY19 Initiation Fee Waiver</label>
+            </value>
+            <value>
+                <fullName>FY19 Special Fee Waiver</fullName>
+                <default>false</default>
+                <label>FY19 Special Fee Waiver</label>
+            </value>
+            <value>
+                <fullName>FY19 Sponsored Initiation Fee</fullName>
+                <default>false</default>
+                <label>FY19 Sponsored Initiation Fee</label>
+            </value>
+            <value>
+                <fullName>FY19 Sponsored Renewal Fee</fullName>
+                <default>false</default>
+                <label>FY19 Sponsored Renewal Fee</label>
+            </value>
+            <value>
+                <fullName>FY18 Sponsored Renewal Fee</fullName>
+                <default>false</default>
+                <label>FY18 Sponsored Renewal Fee</label>
+            </value>
+            <value>
+                <fullName>FY14 Initiation Fee Waiver</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>FY14 Initiation Fee Waiver</label>
+            </value>
+            <value>
+                <fullName>FY14 Special Fee Waiver</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>FY14 Special Fee Waiver</label>
+            </value>
+            <value>
+                <fullName>FY15 Initiation Fee Waiver</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>FY15 Initiation Fee Waiver</label>
+            </value>
+            <value>
+                <fullName>FY15 Special Fee Waiver</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>FY15 Special Fee Waiver</label>
+            </value>
+            <value>
+                <fullName>FY16 Initiation Fee Waiver</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>FY16 Initiation Fee Waiver</label>
+            </value>
+            <value>
+                <fullName>FY16 Special Fee Waiver</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>FY16 Special Fee Waiver</label>
+            </value>
+            <value>
+                <fullName>FY17 Initiation Fee Waiver</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>FY17 Initiation Fee Waiver</label>
+            </value>
+            <value>
+                <fullName>FY17 Special Fee Waiver</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>FY17 Special Fee Waiver</label>
+            </value>
+            <value>
+                <fullName>FY18 Initiation Fee Waiver</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>FY18 Initiation Fee Waiver</label>
+            </value>
+            <value>
+                <fullName>FY18 Special Fee Waiver</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>FY18 Special Fee Waiver</label>
+            </value>
+            <value>
+                <fullName>FY18 Sponsored Initiation Fee</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>FY18 Sponsored Initiation Fee</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>10</visibleLines>
+</CustomField>

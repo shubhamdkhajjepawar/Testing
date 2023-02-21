@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Stephanie Adler Yuan</fullName>
+        <default>false</default>
+        <label>Stephanie Adler Yuan</label>
+    </customValue>
+    <customValue>
+        <fullName>Casey Kudesia</fullName>
+        <default>false</default>
+        <label>Casey Kudesia</label>
+    </customValue>
+    <customValue>
+        <fullName>Kathy Scopin</fullName>
+        <default>false</default>
+        <label>Kathy Scopin</label>
+    </customValue>
+    <customValue>
+        <fullName>Kae Bendixen</fullName>
+        <default>false</default>
+        <label>Kae Bendixen</label>
+    </customValue>
+    <customValue>
+        <fullName>Cathy Buch</fullName>
+        <default>false</default>
+        <label>Cathy Buch</label>
+    </customValue>
+    <customValue>
+        <fullName>Phyllis Coletta</fullName>
+        <default>false</default>
+        <label>Phyllis Coletta</label>
+    </customValue>
+    <customValue>
+        <fullName>Pat Forman</fullName>
+        <default>false</default>
+        <label>Pat Forman</label>
+    </customValue>
+    <customValue>
+        <fullName>Michael Goldberg</fullName>
+        <default>false</default>
+        <label>Michael Goldberg</label>
+    </customValue>
+    <customValue>
+        <fullName>Bernadette Harrow</fullName>
+        <default>false</default>
+        <label>Bernadette Harrow</label>
+    </customValue>
+    <customValue>
+        <fullName>Robin Hasenfeld</fullName>
+        <default>false</default>
+        <label>Robin Hasenfeld</label>
+    </customValue>
+    <customValue>
+        <fullName>Sally Mack</fullName>
+        <default>false</default>
+        <label>Sally Mack</label>
+    </customValue>
+    <customValue>
+        <fullName>Pamela Mann</fullName>
+        <default>false</default>
+        <label>Pamela Mann</label>
+    </customValue>
+    <customValue>
+        <fullName>Heather Olson</fullName>
+        <default>false</default>
+        <label>Heather Olson</label>
+    </customValue>
+    <customValue>
+        <fullName>Julie Palmer-Hoffman</fullName>
+        <default>false</default>
+        <label>Julie Palmer-Hoffman</label>
+    </customValue>
+    <customValue>
+        <fullName>Margie Stanzler</fullName>
+        <default>false</default>
+        <label>Margie Stanzler</label>
+    </customValue>
+    <customValue>
+        <fullName>Eric Zack</fullName>
+        <default>false</default>
+        <label>Eric Zack</label>
+    </customValue>
+    <masterLabel>Advisor Who Visited</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

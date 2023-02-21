@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Course_Name__c</fullName>
+    <externalId>false</externalId>
+    <label>Course Name</label>
+    <required>true</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Schwartz Center Member Orientation</fullName>
+                <default>false</default>
+                <label>Schwartz Center Member Orientation</label>
+            </value>
+            <value>
+                <fullName>Schwartz Rounds Orientation and Training</fullName>
+                <default>false</default>
+                <label>Schwartz Rounds Orientation and Training</label>
+            </value>
+            <value>
+                <fullName>Schwartz Rounds Video Observation</fullName>
+                <default>false</default>
+                <label>Schwartz Rounds Video Observation</label>
+            </value>
+            <value>
+                <fullName>Introduction to Trauma-Informed Facilitation Skills</fullName>
+                <default>false</default>
+                <label>Introduction to Trauma-Informed Facilitation Skills</label>
+            </value>
+            <value>
+                <fullName>Intruduction to Unit-Based Schwartz Rounds</fullName>
+                <default>false</default>
+                <label>Intruduction to Unit-Based Schwartz Rounds</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Rounds_Sessions_Per_Year__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>The number of Rounds sessions a member plans to hold each year. The Schwartz Center generally requires a minimum of six, but makes exceptions for some members.</inlineHelpText>
+    <label>Rounds Sessions Per Year</label>
+    <length>255</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

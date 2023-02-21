@@ -1,0 +1,583 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>49.0</apiVersion>
+    <assignments>
+        <name>myVariable_waitStartTimeAssignment</name>
+        <label>myVariable_waitStartTimeAssignment</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>myVariable_waitStartTimeVariable</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Flow.CurrentDateTime</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>myDecision</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <processMetadataValues>
+            <name>index</name>
+            <value>
+                <numberValue>0.0</numberValue>
+            </value>
+        </processMetadataValues>
+        <name>myDecision</name>
+        <label>myDecision</label>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>myDecision3</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>default</defaultConnectorLabel>
+        <rules>
+            <name>myRule_1</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>formula_myRule_1</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>myRule_1_A1</targetReference>
+            </connector>
+            <label>LastReceived isNULL</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <processMetadataValues>
+            <name>index</name>
+            <value>
+                <numberValue>1.0</numberValue>
+            </value>
+        </processMetadataValues>
+        <name>myDecision3</name>
+        <label>myDecision3</label>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>myDecision6</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>default</defaultConnectorLabel>
+        <rules>
+            <name>myRule_4</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>formula_myRule_4</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>myRule_4_A1</targetReference>
+            </connector>
+            <label>LastReceived isChanged</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <processMetadataValues>
+            <name>index</name>
+            <value>
+                <numberValue>2.0</numberValue>
+            </value>
+        </processMetadataValues>
+        <name>myDecision6</name>
+        <label>myDecision6</label>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>default</defaultConnectorLabel>
+        <rules>
+            <name>myRule_7</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <processMetadataValues>
+                    <name>inputDataType</name>
+                    <value>
+                        <stringValue>Boolean</stringValue>
+                    </value>
+                </processMetadataValues>
+                <processMetadataValues>
+                    <name>leftHandSideType</name>
+                    <value>
+                        <stringValue>Boolean</stringValue>
+                    </value>
+                </processMetadataValues>
+                <processMetadataValues>
+                    <name>operatorDataType</name>
+                    <value>
+                        <stringValue>Boolean</stringValue>
+                    </value>
+                </processMetadataValues>
+                <processMetadataValues>
+                    <name>rightHandSideType</name>
+                    <value>
+                        <stringValue>Boolean</stringValue>
+                    </value>
+                </processMetadataValues>
+                <leftValueReference>myVariable_current.SYSTEM_WorkflowBypass__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <processMetadataValues>
+                    <name>inputDataType</name>
+                    <value>
+                        <stringValue>Picklist</stringValue>
+                    </value>
+                </processMetadataValues>
+                <processMetadataValues>
+                    <name>leftHandSideType</name>
+                    <value>
+                        <stringValue>Picklist</stringValue>
+                    </value>
+                </processMetadataValues>
+                <processMetadataValues>
+                    <name>operatorDataType</name>
+                    <value>
+                        <stringValue>String</stringValue>
+                    </value>
+                </processMetadataValues>
+                <processMetadataValues>
+                    <name>rightHandSideType</name>
+                    <value>
+                        <stringValue>Picklist</stringValue>
+                    </value>
+                </processMetadataValues>
+                <leftValueReference>myVariable_current.Member_Status__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Former Member</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>myRule_7_A1</targetReference>
+            </connector>
+            <label>WorkflowBypass=TRUE</label>
+        </rules>
+    </decisions>
+    <description>Used only for testing</description>
+    <formulas>
+        <processMetadataValues>
+            <name>originalFormula</name>
+            <value>
+                <stringValue>IF(
+NOT(ISNULL([Membership__c].Date_of_Earliest_Payment_Due_SYSTEM__c )),
+[Membership__c].Date_of_Earliest_Payment_Due_SYSTEM__c,
+[Membership__c].Renewal_Date__c
+)</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>formula_2_myRule_1_A1_6689777980</name>
+        <dataType>Date</dataType>
+        <expression>IF(
+NOT(ISNULL({!myVariable_current.Date_of_Earliest_Payment_Due_SYSTEM__c} )),
+{!myVariable_current.Date_of_Earliest_Payment_Due_SYSTEM__c},
+{!myVariable_current.Renewal_Date__c}
+)</expression>
+    </formulas>
+    <formulas>
+        <processMetadataValues>
+            <name>originalFormula</name>
+            <value>
+                <stringValue>IF(
+NOT(ISNULL([Membership__c].Date_of_Earliest_Payment_Due_SYSTEM__c )),
+[Membership__c].Date_of_Earliest_Payment_Due_SYSTEM__c,
+
+IF(
+ISNULL([Membership__c].Payment_Due_Date__c ),
+	IF(
+	AND( MONTH([Membership__c].Membership_Start_Date__c)=MONTH([Membership__c].Today_TESTING__c), DAY([Membership__c].Membership_Start_Date__c)=DAY([Membership__c].Today_TESTING__c) ), 
+		DATE(YEAR([Membership__c].Today_TESTING__c)+1,MONTH([Membership__c].Membership_Start_Date__c),DAY([Membership__c].Membership_Start_Date__c)), 
+	IF(
+	DATE(YEAR([Membership__c].Today_TESTING__c),MONTH([Membership__c].Membership_Start_Date__c),DAY([Membership__c].Membership_Start_Date__c))&gt; [Membership__c].Today_TESTING__c, 
+		DATE(YEAR([Membership__c].Today_TESTING__c),1,DAY([Membership__c].Membership_Start_Date__c)), 
+	IF(
+	DATE(YEAR([Membership__c].Today_TESTING__c),MONTH([Membership__c].Membership_Start_Date__c),DAY([Membership__c].Membership_Start_Date__c))&lt;[Membership__c].Today_TESTING__c, 
+		DATE(YEAR([Membership__c].Today_TESTING__c)+1,MONTH([Membership__c].Membership_Start_Date__c),DAY([Membership__c].Membership_Start_Date__c)), NULL))),
+
+IF(
+AND(
+[Membership__c].Last_Payment_Received_Date__c &lt; [Membership__c].Payment_Due_Date__c , 
+[Membership__c].Last_Payment_Received_Date__c&lt;&gt;date(year([Membership__c].Renewal_Date__c)-1,month([Membership__c].Renewal_Date__c),day([Membership__c].Renewal_Date__c)),
+[Membership__c].Last_Payment_Received_Date__c&lt;&gt;date(year([Membership__c].Renewal_Date__c)-2,month([Membership__c].Renewal_Date__c),day([Membership__c].Renewal_Date__c))
+),
+	Date(year([Membership__c].Renewal_Date__c)+1,month([Membership__c].Renewal_Date__c),day([Membership__c].Renewal_Date__c)), 	
+IF(
+AND(
+OR([Membership__c].Last_Payment_Received_Date__c &gt; [Membership__c].Payment_Due_Date__c , [Membership__c].Last_Payment_Received_Date__c =[Membership__c].Payment_Due_Date__c ),
+[Membership__c].Last_Payment_Received_Date__c&lt;&gt;date(year([Membership__c].Renewal_Date__c)-1,month([Membership__c].Renewal_Date__c),day([Membership__c].Renewal_Date__c)),
+[Membership__c].Last_Payment_Received_Date__c&lt;&gt;date(year([Membership__c].Renewal_Date__c)-2,month([Membership__c].Renewal_Date__c),day([Membership__c].Renewal_Date__c))
+),
+	Date(year([Membership__c].Renewal_Date__c),month([Membership__c].Renewal_Date__c),day([Membership__c].Renewal_Date__c)),
+
+NULL )))
+)
+</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>formula_5_myRule_4_A1_6877017443</name>
+        <dataType>Date</dataType>
+        <expression>IF(
+NOT(ISNULL({!myVariable_current.Date_of_Earliest_Payment_Due_SYSTEM__c} )),
+{!myVariable_current.Date_of_Earliest_Payment_Due_SYSTEM__c},
+
+IF(
+ISNULL({!myVariable_current.Payment_Due_Date__c} ),
+	IF(
+	AND( MONTH({!myVariable_current.Membership_Start_Date__c})=MONTH({!myVariable_current.Today_TESTING__c}), DAY({!myVariable_current.Membership_Start_Date__c})=DAY({!myVariable_current.Today_TESTING__c}) ), 
+		DATE(YEAR({!myVariable_current.Today_TESTING__c})+1,MONTH({!myVariable_current.Membership_Start_Date__c}),DAY({!myVariable_current.Membership_Start_Date__c})), 
+	IF(
+	DATE(YEAR({!myVariable_current.Today_TESTING__c}),MONTH({!myVariable_current.Membership_Start_Date__c}),DAY({!myVariable_current.Membership_Start_Date__c}))&gt; {!myVariable_current.Today_TESTING__c}, 
+		DATE(YEAR({!myVariable_current.Today_TESTING__c}),1,DAY({!myVariable_current.Membership_Start_Date__c})), 
+	IF(
+	DATE(YEAR({!myVariable_current.Today_TESTING__c}),MONTH({!myVariable_current.Membership_Start_Date__c}),DAY({!myVariable_current.Membership_Start_Date__c}))&lt;{!myVariable_current.Today_TESTING__c}, 
+		DATE(YEAR({!myVariable_current.Today_TESTING__c})+1,MONTH({!myVariable_current.Membership_Start_Date__c}),DAY({!myVariable_current.Membership_Start_Date__c})), NULL))),
+
+IF(
+AND(
+{!myVariable_current.Last_Payment_Received_Date__c} &lt; {!myVariable_current.Payment_Due_Date__c} , 
+{!myVariable_current.Last_Payment_Received_Date__c}&lt;&gt;date(year({!myVariable_current.Renewal_Date__c})-1,month({!myVariable_current.Renewal_Date__c}),day({!myVariable_current.Renewal_Date__c})),
+{!myVariable_current.Last_Payment_Received_Date__c}&lt;&gt;date(year({!myVariable_current.Renewal_Date__c})-2,month({!myVariable_current.Renewal_Date__c}),day({!myVariable_current.Renewal_Date__c}))
+),
+	Date(year({!myVariable_current.Renewal_Date__c})+1,month({!myVariable_current.Renewal_Date__c}),day({!myVariable_current.Renewal_Date__c})), 	
+IF(
+AND(
+OR({!myVariable_current.Last_Payment_Received_Date__c} &gt; {!myVariable_current.Payment_Due_Date__c} , {!myVariable_current.Last_Payment_Received_Date__c} ={!myVariable_current.Payment_Due_Date__c} ),
+{!myVariable_current.Last_Payment_Received_Date__c}&lt;&gt;date(year({!myVariable_current.Renewal_Date__c})-1,month({!myVariable_current.Renewal_Date__c}),day({!myVariable_current.Renewal_Date__c})),
+{!myVariable_current.Last_Payment_Received_Date__c}&lt;&gt;date(year({!myVariable_current.Renewal_Date__c})-2,month({!myVariable_current.Renewal_Date__c}),day({!myVariable_current.Renewal_Date__c}))
+),
+	Date(year({!myVariable_current.Renewal_Date__c}),month({!myVariable_current.Renewal_Date__c}),day({!myVariable_current.Renewal_Date__c})),
+
+NULL )))
+)</expression>
+    </formulas>
+    <formulas>
+        <processMetadataValues>
+            <name>originalFormula</name>
+            <value>
+                <stringValue>AND(
+OR(
+AND(
+ISNULL(PRIORVALUE([Membership__c].Last_Payment_Received_Date__c )),
+NOT(ISNULL([Membership__c].Last_Payment_Received_Date__c ))
+),
+AND(ISCHANGED([Membership__c].Date_of_Earliest_Payment_Due_SYSTEM__c ),NOT(ISNULL([Membership__c].Date_of_Earliest_Payment_Due_SYSTEM__c )))
+),
+[Membership__c].SYSTEM_WorkflowBypass__c =FALSE,
+NOT(ISPICKVAL([Membership__c].Member_Status__c ,&quot;Former Member&quot;) )
+)</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>formula_myRule_1</name>
+        <dataType>Boolean</dataType>
+        <expression>AND(
+OR(
+AND(
+ISNULL(PRIORVALUE({!myVariable_current.Last_Payment_Received_Date__c} )),
+NOT(ISNULL({!myVariable_current.Last_Payment_Received_Date__c} ))
+),
+AND(ISCHANGED({!myVariable_current.Date_of_Earliest_Payment_Due_SYSTEM__c} ),NOT(ISNULL({!myVariable_current.Date_of_Earliest_Payment_Due_SYSTEM__c} )))
+),
+{!myVariable_current.SYSTEM_WorkflowBypass__c} =FALSE,
+NOT(ISPICKVAL({!myVariable_current.Member_Status__c} ,&quot;Former Member&quot;) )
+)</expression>
+    </formulas>
+    <formulas>
+        <processMetadataValues>
+            <name>originalFormula</name>
+            <value>
+                <stringValue>AND(
+NOT(ISNULL(PRIORVALUE([Membership__c].Last_Payment_Received_Date__c))),
+OR(
+ISCHANGED([Membership__c].Last_Payment_Received_Date__c ),
+AND(ISCHANGED([Membership__c].Last_Payment_Received_Date__c ),NOT(ISNULL([Membership__c].Last_Payment_Received_Date__c))),
+AND(ISCHANGED([Membership__c].Date_of_Earliest_Payment_Due_SYSTEM__c ),NOT(ISNULL([Membership__c].Date_of_Earliest_Payment_Due_SYSTEM__c )))
+),
+[Membership__c].SYSTEM_WorkflowBypass__c =FALSE,
+NOT(ISPICKVAL([Membership__c].Member_Status__c ,&quot;Former Member&quot;) )
+)</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>formula_myRule_4</name>
+        <dataType>Boolean</dataType>
+        <expression>AND(
+NOT(ISNULL(PRIORVALUE({!myVariable_current.Last_Payment_Received_Date__c}))),
+OR(
+ISCHANGED({!myVariable_current.Last_Payment_Received_Date__c} ),
+AND(ISCHANGED({!myVariable_current.Last_Payment_Received_Date__c} ),NOT(ISNULL({!myVariable_current.Last_Payment_Received_Date__c}))),
+AND(ISCHANGED({!myVariable_current.Date_of_Earliest_Payment_Due_SYSTEM__c} ),NOT(ISNULL({!myVariable_current.Date_of_Earliest_Payment_Due_SYSTEM__c} )))
+),
+{!myVariable_current.SYSTEM_WorkflowBypass__c} =FALSE,
+NOT(ISPICKVAL({!myVariable_current.Member_Status__c} ,&quot;Former Member&quot;) )
+)</expression>
+    </formulas>
+    <interviewLabel>TESTING_Update_Payment_Due_Date-5_InterviewLabel</interviewLabel>
+    <label>TESTING_Update Payment Due Date</label>
+    <processMetadataValues>
+        <name>ObjectType</name>
+        <value>
+            <stringValue>Membership__c</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>ObjectVariable</name>
+        <value>
+            <elementReference>myVariable_current</elementReference>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OldObjectVariable</name>
+        <value>
+            <elementReference>myVariable_old</elementReference>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>TriggerType</name>
+        <value>
+            <stringValue>onAllChanges</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Workflow</processType>
+    <recordUpdates>
+        <processMetadataValues>
+            <name>evaluationType</name>
+            <value>
+                <stringValue>always</stringValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>isChildRelationship</name>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>reference</name>
+            <value>
+                <stringValue>[Membership__c]</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>myRule_1_A1</name>
+        <label>Update Payment Due Date</label>
+        <locationX>100</locationX>
+        <locationY>200</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <processMetadataValues>
+                <name>implicit</name>
+                <value>
+                    <booleanValue>true</booleanValue>
+                </value>
+            </processMetadataValues>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>myVariable_current.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <processMetadataValues>
+                <name>dataType</name>
+                <value>
+                    <stringValue>Date</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>isRequired</name>
+                <value>
+                    <booleanValue>false</booleanValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>leftHandSideLabel</name>
+                <value>
+                    <stringValue>Payment Due Date</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>rightHandSideType</name>
+                <value>
+                    <stringValue>Formula</stringValue>
+                </value>
+            </processMetadataValues>
+            <field>Payment_Due_Date__c</field>
+            <value>
+                <elementReference>formula_2_myRule_1_A1_6689777980</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Membership__c</object>
+    </recordUpdates>
+    <recordUpdates>
+        <processMetadataValues>
+            <name>evaluationType</name>
+            <value>
+                <stringValue>always</stringValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>isChildRelationship</name>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>reference</name>
+            <value>
+                <stringValue>[Membership__c]</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>myRule_4_A1</name>
+        <label>Update Payment Due Date</label>
+        <locationX>400</locationX>
+        <locationY>200</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <processMetadataValues>
+                <name>implicit</name>
+                <value>
+                    <booleanValue>true</booleanValue>
+                </value>
+            </processMetadataValues>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>myVariable_current.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <processMetadataValues>
+                <name>dataType</name>
+                <value>
+                    <stringValue>Date</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>isRequired</name>
+                <value>
+                    <booleanValue>false</booleanValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>leftHandSideLabel</name>
+                <value>
+                    <stringValue>Payment Due Date</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>rightHandSideType</name>
+                <value>
+                    <stringValue>Formula</stringValue>
+                </value>
+            </processMetadataValues>
+            <field>Payment_Due_Date__c</field>
+            <value>
+                <elementReference>formula_5_myRule_4_A1_6877017443</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Membership__c</object>
+    </recordUpdates>
+    <recordUpdates>
+        <processMetadataValues>
+            <name>evaluationType</name>
+            <value>
+                <stringValue>always</stringValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>isChildRelationship</name>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>reference</name>
+            <value>
+                <stringValue>[Membership__c]</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>myRule_7_A1</name>
+        <label>WorkflowBypass FALSE</label>
+        <locationX>700</locationX>
+        <locationY>200</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <processMetadataValues>
+                <name>implicit</name>
+                <value>
+                    <booleanValue>true</booleanValue>
+                </value>
+            </processMetadataValues>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>myVariable_current.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <processMetadataValues>
+                <name>dataType</name>
+                <value>
+                    <stringValue>Boolean</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>isRequired</name>
+                <value>
+                    <booleanValue>false</booleanValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>leftHandSideLabel</name>
+                <value>
+                    <stringValue>SYSTEM_WorkflowBypass</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>rightHandSideType</name>
+                <value>
+                    <stringValue>Boolean</stringValue>
+                </value>
+            </processMetadataValues>
+            <field>SYSTEM_WorkflowBypass__c</field>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </inputAssignments>
+        <object>Membership__c</object>
+    </recordUpdates>
+    <startElementReference>myVariable_waitStartTimeAssignment</startElementReference>
+    <status>Draft</status>
+    <variables>
+        <name>myVariable_current</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <objectType>Membership__c</objectType>
+    </variables>
+    <variables>
+        <name>myVariable_old</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Membership__c</objectType>
+    </variables>
+    <variables>
+        <name>myVariable_waitStartTimeVariable</name>
+        <dataType>DateTime</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <elementReference>$Flow.CurrentDateTime</elementReference>
+        </value>
+    </variables>
+</Flow>

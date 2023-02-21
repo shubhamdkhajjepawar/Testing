@@ -1,0 +1,21 @@
+<apex:page standardController="Account" showHeader="true" tabStyle="Account" >
+    <apex:detail subject="{!Account.Id}" relatedList="true" inlineEdit="true" showChatter="true"/>  
+    <apex:includeScript value="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"/>
+    <script>
+        var j$ = jQuery.noConflict();
+        j$("iframe").each(function(){
+            j$(this).load(function() {
+                j$(this).height( j$(this).contents().find("body").height() );
+            });
+        });
+    </script>
+    
+    <script>
+     var url = location.href;
+     var match = url.match(/inline=1/);
+    if (match != null) { 
+        var newUrl = url.replace(/inline=1/, '');
+        window.top.location=newUrl;
+    }
+</script>
+</apex:page>
